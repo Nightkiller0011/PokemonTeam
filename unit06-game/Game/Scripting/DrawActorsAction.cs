@@ -34,6 +34,8 @@ namespace Unit06.Game.Scripting
             List<Actor> messages = cast.GetActors("messages");
 
             List<Actor> players = cast.GetActors("player");
+
+            List<Actor> enemys = cast.GetActors("enemy");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -42,6 +44,10 @@ namespace Unit06.Game.Scripting
             foreach (Actor player in players)
             {
                 videoService.DrawActor(player);
+            }
+            foreach (Actor enemy in enemys)
+            {
+                videoService.DrawActor(enemy);
             }
 
             // videoService.DrawActors(messages);

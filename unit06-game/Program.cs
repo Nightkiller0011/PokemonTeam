@@ -14,6 +14,7 @@ namespace Unit06
             cast.AddActor("player", new Player("player1"));
             cast.AddActor("player", new Player("player2"));
 
+            cast.AddActor("enemy", new Enemy("enemy"));
             // create the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
