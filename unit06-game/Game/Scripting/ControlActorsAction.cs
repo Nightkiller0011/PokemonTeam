@@ -31,7 +31,6 @@ namespace Unit06.Game.Scripting
             direction = new Point(0, 0);
 
             direction2 = new Point(0, 0);
-            
             // player 1
             // left
             if (keyboardService.IsKeyDown("a"))

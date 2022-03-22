@@ -11,10 +11,17 @@ namespace Unit06
         {
             // create the cast
             Cast cast = new Cast();
+
+            //Players
             cast.AddActor("player", new Player("player1"));
             cast.AddActor("player", new Player("player2"));
 
+            //enemies
             cast.AddActor("enemy", new Enemy("enemy"));
+
+            // obsticals
+            cast.AddActor("obstical", new Obstical("obstical"));
+
             // create the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);

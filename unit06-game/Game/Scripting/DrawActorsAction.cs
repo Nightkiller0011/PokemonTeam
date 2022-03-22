@@ -36,6 +36,8 @@ namespace Unit06.Game.Scripting
             List<Actor> players = cast.GetActors("player");
 
             List<Actor> enemys = cast.GetActors("enemy");
+
+            List<Actor> obsticals = cast.GetActors("obstical");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -45,11 +47,18 @@ namespace Unit06.Game.Scripting
             {
                 videoService.DrawActor(player);
             }
+
+            // Displays enemies
             foreach (Actor enemy in enemys)
             {
                 videoService.DrawActor(enemy);
             }
 
+            // Display obsticals
+            foreach (Actor obstical in obsticals)
+            {
+                videoService.DrawActor(obstical);
+            }
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();
         }

@@ -21,7 +21,7 @@ namespace Unit06.Game.Casting
             if (enemy == "enemy")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(300, 575));
+                SetPosition(new Point(150, 20));
             }
             
         }
