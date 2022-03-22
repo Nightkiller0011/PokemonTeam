@@ -17,7 +17,7 @@ namespace Unit06
             cast.AddActor("player", new Player("player2"));
 
             //enemies
-            cast.AddActor("enemy", new Enemy("enemy"));
+            cast.AddActor("enemy", new Enemy("enemy", "E"));
 
             // obsticals
             cast.AddActor("obstical", new Obstical("obstical"));

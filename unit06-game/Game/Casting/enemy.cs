@@ -8,13 +8,13 @@ namespace Unit06.Game.Casting
     /// </summary>
     public class Enemy : Actor
     {
-        private string _message = "E";
-        public Enemy(string enemy)
+        //private string _message1 = "E";
+        public Enemy(string enemy, string messages)
         {
             // create the player
             Cast cast = new Cast();
 
-            SetText(_message);
+            SetText(messages);
 
             SetFontSize(Constants.FONT_SIZE);
 
