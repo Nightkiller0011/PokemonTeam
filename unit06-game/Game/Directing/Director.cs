@@ -50,11 +50,11 @@ namespace Unit06.Game.Directing
         /// <param name="script">The script of actions.</param>
         private void ExecuteActions(string group, Cast cast, Script script)
         {
-            // List<Action> actions = script.GetActions(group);
-            // foreach(Action action in actions)
-            // {
-            //     action.Execute(cast, script);
-            // }
+            List<Action> actions = script.GetActions(group);
+            foreach(Action action in actions)
+            {
+                action.Execute(cast, script);
+            }
         }
     }
 }

@@ -28,6 +28,11 @@ namespace Unit06.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
+            direction = new Point(0, 0);
+
+            direction2 = new Point(0, 0);
+            
+            // player 1
             // left
             if (keyboardService.IsKeyDown("a"))
             {
@@ -51,7 +56,8 @@ namespace Unit06.Game.Scripting
             {
                 direction = new Point(0, Constants.CELL_SIZE);
             }
-            // Snake 2
+            
+            // player 2
             // left
             if (keyboardService.IsKeyDown("j"))
             {
@@ -75,12 +81,15 @@ namespace Unit06.Game.Scripting
             {
                 direction2 = new Point(0, Constants.CELL_SIZE);
             }
+
             // Snake snake = (Snake)cast.GetFirstActor("snake");
-            List<Actor> snakes = cast.GetActors("snake");
-        //     Snake snake1 = (Snake) snakes[0];
-        //     Snake snake2 = (Snake) snakes[1];
-        //     snake1.TurnHead(direction);
-        //     snake2.TurnHead(direction2);
+            List<Actor> players = cast.GetActors("player");
+            // Snake snake1 = (Snake) snakes[0];
+            // Snake snake2 = (Snake) snakes[1];
+            // snake1.TurnHead(direction);
+            // snake2.TurnHead(direction2);
+            players[0].SetVelocity(direction);
+            players[1].SetVelocity(direction2);
         }
     }
 }
