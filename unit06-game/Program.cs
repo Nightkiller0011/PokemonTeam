@@ -18,10 +18,13 @@ namespace Unit06
 
             //enemies
             cast.AddActor("enemy", new Enemy("enemy", "E"));
+            cast.AddActor("enemy", new Enemy("enemy2", "E"));
+            cast.AddActor("enemy", new Enemy("enemy3", "E"));
 
             // obsticals
             cast.AddActor("obstical", new Obstical("obstical"));
-
+            cast.AddActor("obstical", new Obstical("obstical2"));
+            cast.AddActor("Obstical", new Obstical("obstical3"));
 
             // scrore borad
             Score score = new Score();

@@ -23,6 +23,19 @@ namespace Unit06.Game.Casting
                 SetColor(Constants.RED);
                 SetPosition(new Point(150, 20));
             }
+            else if(enemy == "enemy2")
+            {
+                SetColor(Constants.RED);
+                SetPosition(new Point(200, 20));
+            }
+            else if (enemy == "enemy3")
+            {
+                SetColor(Constants.RED);
+                SetPosition(new Point(400, 20));
+            }
+            {
+                
+            }
             
         }
 
