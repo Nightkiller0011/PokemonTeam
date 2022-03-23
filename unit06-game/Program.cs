@@ -22,6 +22,18 @@ namespace Unit06
             // obsticals
             cast.AddActor("obstical", new Obstical("obstical"));
 
+
+            // scrore borad
+            Score score = new Score();
+            score.SetPosition(new Point(800,0));
+            cast.AddActor("score",  score);
+
+            // Health about
+            Score health = new Score();
+            health.SetPosition(new Point(100, 0));
+            health.SetText("Health: 100%");
+            cast.AddActor("score", health);
+
             // create the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);

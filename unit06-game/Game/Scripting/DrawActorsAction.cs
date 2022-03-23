@@ -29,7 +29,7 @@ namespace Unit06.Game.Scripting
             // Snake snake2 = (Snake) snakes[1];
             // List<Actor> segments = snake1.GetSegments();
             // List<Actor> segments2 = snake2.GetSegments();
-            Actor score = cast.GetFirstActor("score");
+            //Actor score = cast.GetFirstActor("score");
             // Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
 
@@ -38,6 +38,8 @@ namespace Unit06.Game.Scripting
             List<Actor> enemys = cast.GetActors("enemy");
 
             List<Actor> obsticals = cast.GetActors("obstical");
+
+            List<Actor> score = cast.GetActors("score");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -58,6 +60,12 @@ namespace Unit06.Game.Scripting
             foreach (Actor obstical in obsticals)
             {
                 videoService.DrawActor(obstical);
+            }
+
+            // Display Score
+            foreach (Actor scores in score)
+            {
+                videoService.DrawActor(scores);
             }
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();
