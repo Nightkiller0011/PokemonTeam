@@ -40,6 +40,8 @@ namespace Unit06.Game.Scripting
             List<Actor> obsticals = cast.GetActors("obstical");
 
             List<Actor> score = cast.GetActors("score");
+
+            List<Actor> health = cast.GetActors("health");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -66,6 +68,12 @@ namespace Unit06.Game.Scripting
             foreach (Actor scores in score)
             {
                 videoService.DrawActor(scores);
+            }
+
+            // Display Health
+            foreach (Actor healty in health)
+            {
+                videoService.DrawActor(healty);
             }
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();

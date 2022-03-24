@@ -28,14 +28,18 @@ namespace Unit06
 
             // scrore borad
             Score score = new Score();
-            score.SetPosition(new Point(800,0));
+            score.SetPosition(new Point(400,0));
             cast.AddActor("score",  score);
 
-            // Health about
-            Score health = new Score();
-            health.SetPosition(new Point(100, 0));
-            health.SetText("Health: 100%");
-            cast.AddActor("score", health);
+            // Player 1's health
+            Health Player1Health = new Health();
+            Player1Health.SetPosition(new Point(0, 0));
+            cast.AddActor("health", Player1Health);
+
+            // PLayer 2's health
+            Health Player2Health = new Health();
+            Player2Health.SetPosition(new Point(750,0));
+            cast.AddActor("health", Player2Health);
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
