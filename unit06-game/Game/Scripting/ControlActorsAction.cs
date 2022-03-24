@@ -28,61 +28,144 @@ namespace Unit06.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
+
             direction = new Point(0, 0);
 
             direction2 = new Point(0, 0);
+
+            List<Actor> players = cast.GetActors("player");
+
+            Point player1Position = players[0].GetPosition();
+            int player1X = player1Position.GetX();
+            int player1Y = player1Position.GetY();
+
+            Point player2Position = players[1].GetPosition();
+            int player2X = player2Position.GetX();
+            int player2Y = player2Position.GetY();
+
             // player 1
             // left
             if (keyboardService.IsKeyDown("a"))
             {
-                direction = new Point(-Constants.CELL_SIZE, 0);
+                int player1NewX = player1X - Constants.CELL_SIZE;
+                Point player1NewPosition = new Point(player1NewX, player1Y);
+                if (player1NewPosition.Equals(player2Position))
+                {
+                    direction = new Point(0, 0);
+                }
+                else
+                {
+                    direction = new Point(-Constants.CELL_SIZE, 0);
+                }
             }
 
             // right
             if (keyboardService.IsKeyDown("d"))
             {
-                direction = new Point(Constants.CELL_SIZE, 0);
+                int player1NewX = player1X + Constants.CELL_SIZE;
+                Point player1NewPosition = new Point(player1NewX, player1Y);
+                if (player1NewPosition.Equals(player2Position))
+                {
+                    direction = new Point(0, 0);
+                }
+                else
+                {
+                    direction = new Point(Constants.CELL_SIZE, 0);
+                }
             }
 
             // up
             if (keyboardService.IsKeyDown("w"))
             {
-                direction = new Point(0, -Constants.CELL_SIZE);
+                int player1NewY = player1Y - Constants.CELL_SIZE;
+                Point player1NewPosition = new Point(player1X, player1NewY);
+                if (player1NewPosition.Equals(player2Position))
+                {
+                    direction = new Point(0, 0);
+                }
+                else
+                {
+                    direction = new Point(0, -Constants.CELL_SIZE);
+                }
             }
 
             // down
             if (keyboardService.IsKeyDown("s"))
             {
-                direction = new Point(0, Constants.CELL_SIZE);
+                int player1NewY = player1Y + Constants.CELL_SIZE;
+                Point player1NewPosition = new Point(player1X, player1NewY);
+                if (player1NewPosition.Equals(player2Position))
+                {
+                    direction = new Point(0, 0);
+                }
+                else
+                {
+                    direction = new Point(0, Constants.CELL_SIZE);
+                }
             }
             
             // player 2
             // left
             if (keyboardService.IsKeyDown("j"))
             {
-                direction2 = new Point(-Constants.CELL_SIZE, 0);
+                int player2NewX = player2X - Constants.CELL_SIZE;
+                Point player2NewPosition = new Point(player2NewX, player2Y);
+                if (player2NewPosition.Equals(player1Position))
+                {
+                    direction2 = new Point(0, 0);
+                }
+                else
+                {
+                    direction2 = new Point(-Constants.CELL_SIZE, 0);
+                }
             }
 
             // right
             if (keyboardService.IsKeyDown("l"))
             {
-                direction2 = new Point(Constants.CELL_SIZE, 0);
+                int player2NewX = player2X + Constants.CELL_SIZE;
+                Point player2NewPosition = new Point(player2NewX, player2Y);
+                if (player2NewPosition.Equals(player1Position))
+                {
+                    direction2 = new Point(0, 0);
+                }
+                else
+                {
+                    direction2 = new Point(Constants.CELL_SIZE, 0);
+                }
             }
 
             // up
             if (keyboardService.IsKeyDown("i"))
             {
-                direction2 = new Point(0, -Constants.CELL_SIZE);
+                int player2NewY = player2Y - Constants.CELL_SIZE;
+                Point player2NewPosition = new Point(player2X, player2NewY);
+                if (player2NewPosition.Equals(player1Position))
+                {
+                    direction2 = new Point(0, 0);
+                }
+                else
+                {
+                    direction2 = new Point(0, -Constants.CELL_SIZE);
+                }
             }
 
             // down
             if (keyboardService.IsKeyDown("k"))
             {
-                direction2 = new Point(0, Constants.CELL_SIZE);
+                int player2NewY = player2Y + Constants.CELL_SIZE;
+                Point player2NewPosition = new Point(player2X, player2NewY);
+                if (player2NewPosition.Equals(player1Position))
+                {
+                    direction2 = new Point(0, 0);
+                }
+                else
+                {
+                    direction2 = new Point(0, Constants.CELL_SIZE);
+                }
             }
 
             // Snake snake = (Snake)cast.GetFirstActor("snake");
-            List<Actor> players = cast.GetActors("player");
             // Snake snake1 = (Snake) snakes[0];
             // Snake snake2 = (Snake) snakes[1];
             // snake1.TurnHead(direction);
