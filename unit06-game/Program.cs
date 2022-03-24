@@ -31,10 +31,12 @@ namespace Unit06
             score.SetPosition(new Point(400,0));
             cast.AddActor("score",  score);
 
-            // Health about
+            // Player 1's health
             Health Player1Health = new Health();
             Player1Health.SetPosition(new Point(0, 0));
             cast.AddActor("health", Player1Health);
+
+            // PLayer 2's health
             Health Player2Health = new Health();
             Player2Health.SetPosition(new Point(750,0));
             cast.AddActor("health", Player2Health);
