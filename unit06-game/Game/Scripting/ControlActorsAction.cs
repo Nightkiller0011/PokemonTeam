@@ -60,6 +60,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction = new Point(-Constants.CELL_SIZE, 0);
                 }
+                players[0].setDirection("left");
             }
 
             // right
@@ -75,6 +76,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction = new Point(Constants.CELL_SIZE, 0);
                 }
+                players[0].setDirection("right");
             }
 
             // up
@@ -90,6 +92,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction = new Point(0, -Constants.CELL_SIZE);
                 }
+                players[0].setDirection("up");
             }
 
             // down
@@ -105,6 +108,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction = new Point(0, Constants.CELL_SIZE);
                 }
+                players[0].setDirection("down");
             }
             
             // player 2
@@ -121,6 +125,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction2 = new Point(-Constants.CELL_SIZE, 0);
                 }
+                players[1].setDirection("left");
             }
 
             // right
@@ -136,6 +141,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction2 = new Point(Constants.CELL_SIZE, 0);
                 }
+                players[1].setDirection("right");
             }
 
             // up
@@ -151,6 +157,7 @@ namespace Unit06.Game.Scripting
                 {
                     direction2 = new Point(0, -Constants.CELL_SIZE);
                 }
+                players[1].setDirection("up");
             }
 
             // down
@@ -166,6 +173,17 @@ namespace Unit06.Game.Scripting
                 {
                     direction2 = new Point(0, Constants.CELL_SIZE);
                 }
+                players[1].setDirection("down");
+            }
+
+            if (keyboardService.IsKeyDown("e"))
+            {
+                players[0].attack();
+            }
+
+            if (keyboardService.IsKeyDown("o"))
+            {
+                players[1].attack();
             }
 
             // Snake snake = (Snake)cast.GetFirstActor("snake");

@@ -17,6 +17,8 @@ namespace Unit06.Game.Casting
         private Color color = Constants.WHITE;
         private Point position = new Point(0, 0);
         private Point velocity = new Point(0, 0);
+        string direction = "up";
+        string fightClass = "knight";
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -154,5 +156,51 @@ namespace Unit06.Game.Casting
             this.velocity = velocity;
         }
 
+
+        // This function sets directional facing.
+
+        public void setDirection(string directionIn)
+        {
+            directionIn = direction;
+        }
+
+        // This function returns directional facing.
+        public string getDirection()
+        {
+            return direction;
+        }
+
+        // This function sets Class type
+        public void setFightClass(string type)
+        {
+            type = fightClass;
+        }
+
+        // This function gets Class Tye
+        public string getFightClass()
+        {
+            return fightClass;
+        }
+
+        //This function has the actor attack
+
+        public void attack()
+        {
+            Point current = GetPosition();
+            string facing = getDirection();
+            if (fightClass == "knight")
+            {
+                
+            }
+            else if (fightClass == "archer")
+            {
+
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }

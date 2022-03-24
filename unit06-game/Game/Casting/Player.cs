@@ -29,14 +29,17 @@ namespace Unit06.Game.Casting
             {
                 SetText(_message1);
                 SetColor(Constants.YELLOW);
-                SetPosition(new Point(300, 575));
+                SetPosition(new Point(300, 585));
+                setFightClass("knight");
             }
             else if (player == "player2")
             {
                 SetText(_message2);
                 SetColor(Constants.GREEN);
-                SetPosition(new Point(600, 575));
+                SetPosition(new Point(600, 585));
+                setFightClass("archer");
             }
+
         }
     }
 }
