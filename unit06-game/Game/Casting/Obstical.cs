@@ -12,6 +12,15 @@ namespace Unit06.Game.Casting
         private string _message = "O";
         public Obstical(string obsticle)
         {
+
+            int x = 0;
+            int y = 0;
+
+            Random rand = new Random();
+
+            x = rand.Next(0,60) * 15;
+            y = rand.Next(3,40) * 15;
+
             // create the player
             Cast cast = new Cast();
 
@@ -21,18 +30,18 @@ namespace Unit06.Game.Casting
 
             if (obsticle == "obstical")
             {
-                SetColor(Constants.RED);
-                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
+                
+                SetPosition(new Point(x, y));
             }
             if (obsticle == "obstical2")
             {
-                SetColor(Constants.RED);
-                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
+                
+                SetPosition(new Point(x, y));
             }
             if (obsticle == "obstical3")
             {
-                SetColor(Constants.RED);
-                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
+                
+                SetPosition(new Point(x, y));
             }
             
         }
