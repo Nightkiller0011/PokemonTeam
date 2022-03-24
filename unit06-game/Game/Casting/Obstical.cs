@@ -30,17 +30,17 @@ namespace Unit06.Game.Casting
 
             if (obsticle == "obstical")
             {
-                SetColor(Constants.RED);
+                
                 SetPosition(new Point(x, y));
             }
             if (obsticle == "obstical2")
             {
-                SetColor(Constants.RED);
+                
                 SetPosition(new Point(x, y));
             }
             if (obsticle == "obstical3")
             {
-                SetColor(Constants.RED);
+                
                 SetPosition(new Point(x, y));
             }
             
