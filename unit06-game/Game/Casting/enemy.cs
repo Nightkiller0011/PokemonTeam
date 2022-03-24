@@ -11,7 +11,14 @@ namespace Unit06.Game.Casting
         //private string _message1 = "E";
         public Enemy(string enemy, string messages)
         {
+            int x = 0;
+            int y = 0;
+
             Random rand = new Random();
+
+            x = rand.Next(0,60) * 15;
+            y = rand.Next(3,40) * 15;
+
             // create the player
             Cast cast = new Cast();
 
@@ -22,17 +29,17 @@ namespace Unit06.Game.Casting
             if (enemy == "enemy")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
+                SetPosition(new Point(x, y));
             }
             else if(enemy == "enemy2")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
+                SetPosition(new Point(x,y));
             }
             else if (enemy == "enemy3")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
+                SetPosition(new Point(x,y));
             }
             {
                 
