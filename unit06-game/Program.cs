@@ -34,10 +34,10 @@ namespace Unit06
             // Health about
             Health Player1Health = new Health();
             Player1Health.SetPosition(new Point(0, 0));
-            cast.AddActor("score", Player1Health);
+            cast.AddActor("health", Player1Health);
             Health Player2Health = new Health();
-            Player2Health.SetPosition(new Point(700,0));
-            cast.AddActor("score", Player2Health);
+            Player2Health.SetPosition(new Point(750,0));
+            cast.AddActor("health", Player2Health);
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
