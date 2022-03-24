@@ -186,21 +186,93 @@ namespace Unit06.Game.Casting
 
         public void attack()
         {
-            Point current = GetPosition();
+            Point currentSpot = GetPosition();
+            int currentX = currentSpot.GetX();
+            int currentY = currentSpot.GetY();
             string facing = getDirection();
+            Point attackSpot1 = new Point(0,0);
+            Point attackSpot2 = new Point(0,0);
+            Point attackSpot3 = new Point(0,0);
+            Point attackSpot4 = new Point(0,0);
+            Point attackSpot5 = new Point(0,0);
+            Point attackSpot6 = new Point(0,0);
+            
             if (fightClass == "knight")
             {
-                
+                if (facing == "left")
+                {
+                    attackSpot1 = new Point(currentX - Constants.CELL_SIZE, currentY);
+                    attackSpot2 = new Point(currentX - (2*Constants.CELL_SIZE), currentY);
+                    attackSpot3 = new Point(currentX - Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
+                    attackSpot4 = new Point(currentX - (2*Constants.CELL_SIZE), currentY + Constants.CELL_SIZE);
+                    attackSpot5 = new Point(currentX - Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
+                    attackSpot6 = new Point(currentX - (2*Constants.CELL_SIZE), currentY - Constants.CELL_SIZE);
+                }
+                if (facing == "right")
+                {
+                    attackSpot1 = new Point(currentX + Constants.CELL_SIZE, currentY);
+                    attackSpot2 = new Point(currentX + (2*Constants.CELL_SIZE), currentY);
+                    attackSpot3 = new Point(currentX + Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
+                    attackSpot4 = new Point(currentX + (2*Constants.CELL_SIZE), currentY + Constants.CELL_SIZE);
+                    attackSpot5 = new Point(currentX + Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
+                    attackSpot6 = new Point(currentX + (2*Constants.CELL_SIZE), currentY - Constants.CELL_SIZE);
+                }
+                if (facing == "up")
+                {
+                    attackSpot1 = new Point(currentX, currentY - Constants.CELL_SIZE);
+                    attackSpot2 = new Point(currentX, currentY  - (2*Constants.CELL_SIZE));
+                    attackSpot3 = new Point(currentX + Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
+                    attackSpot4 = new Point(currentX + Constants.CELL_SIZE, currentY - (2*Constants.CELL_SIZE));
+                    attackSpot5 = new Point(currentX - Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
+                    attackSpot6 = new Point(currentX - Constants.CELL_SIZE, currentY - (2*Constants.CELL_SIZE));
+                }
+                if (facing == "down")
+                {
+                    attackSpot1 = new Point(currentX, currentY + Constants.CELL_SIZE);
+                    attackSpot2 = new Point(currentX, currentY  + (2*Constants.CELL_SIZE));
+                    attackSpot3 = new Point(currentX + Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
+                    attackSpot4 = new Point(currentX + Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));
+                    attackSpot5 = new Point(currentX - Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
+                    attackSpot6 = new Point(currentX - Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));                }
             }
             else if (fightClass == "archer")
             {
-
-
+                if (facing == "left")
+                {
+                    attackSpot1 = new Point(currentX - Constants.CELL_SIZE, currentY);
+                    attackSpot2 = new Point(currentX - (2*Constants.CELL_SIZE), currentY);
+                    attackSpot3 = new Point(currentX - (3*Constants.CELL_SIZE), currentY);
+                    attackSpot4 = new Point(currentX - (4*Constants.CELL_SIZE), currentY);
+                    attackSpot5 = new Point(currentX - (5*Constants.CELL_SIZE), currentY);
+                    attackSpot6 = new Point(currentX - (6*Constants.CELL_SIZE), currentY);
+                }
+                if (facing == "right")
+                {
+                    attackSpot1 = new Point(currentX + Constants.CELL_SIZE, currentY);
+                    attackSpot2 = new Point(currentX + (2*Constants.CELL_SIZE), currentY);
+                    attackSpot3 = new Point(currentX + (3*Constants.CELL_SIZE), currentY);
+                    attackSpot4 = new Point(currentX + (4*Constants.CELL_SIZE), currentY);
+                    attackSpot5 = new Point(currentX + (5*Constants.CELL_SIZE), currentY);
+                    attackSpot6 = new Point(currentX + (6*Constants.CELL_SIZE), currentY);                }
+                if (facing == "up")
+                {
+                    attackSpot1 = new Point(currentX, currentY - Constants.CELL_SIZE);
+                    attackSpot2 = new Point(currentX, currentY - (2*Constants.CELL_SIZE));
+                    attackSpot3 = new Point(currentX, currentY - (3*Constants.CELL_SIZE));
+                    attackSpot4 = new Point(currentX, currentY - (4*Constants.CELL_SIZE));
+                    attackSpot5 = new Point(currentX, currentY - (5*Constants.CELL_SIZE));
+                    attackSpot6 = new Point(currentX, currentY - (6*Constants.CELL_SIZE));                }
+                if (facing == "down")
+                {
+                    attackSpot1 = new Point(currentX, currentY + Constants.CELL_SIZE);
+                    attackSpot2 = new Point(currentX, currentY + (2*Constants.CELL_SIZE));
+                    attackSpot3 = new Point(currentX, currentY + (3*Constants.CELL_SIZE));
+                    attackSpot4 = new Point(currentX, currentY + (4*Constants.CELL_SIZE));
+                    attackSpot5 = new Point(currentX, currentY + (5*Constants.CELL_SIZE));
+                    attackSpot6 = new Point(currentX, currentY + (6*Constants.CELL_SIZE));
+                }
             }
-            else
-            {
-
-            }
+            
         }
     }
 }
