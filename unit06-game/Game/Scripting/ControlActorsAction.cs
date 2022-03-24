@@ -28,17 +28,20 @@ namespace Unit06.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-
+            // Set the directions as 0
             direction = new Point(0, 0);
 
             direction2 = new Point(0, 0);
 
+            // Get players
             List<Actor> players = cast.GetActors("player");
 
+            // Player 1's info
             Point player1Position = players[0].GetPosition();
             int player1X = player1Position.GetX();
             int player1Y = player1Position.GetY();
 
+            // Player 2's info
             Point player2Position = players[1].GetPosition();
             int player2X = player2Position.GetX();
             int player2Y = player2Position.GetY();
