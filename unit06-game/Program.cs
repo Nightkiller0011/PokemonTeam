@@ -24,7 +24,7 @@ namespace Unit06
             // obsticals
             cast.AddActor("obstical", new Obstical("obstical"));
             cast.AddActor("obstical", new Obstical("obstical2"));
-            cast.AddActor("Obstical", new Obstical("obstical3"));
+            cast.AddActor("obstical", new Obstical("obstical3"));
 
             // scrore borad
             Score score = new Score();

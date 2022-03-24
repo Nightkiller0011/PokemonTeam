@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 
 namespace Unit06.Game.Casting
 {
@@ -8,6 +8,7 @@ namespace Unit06.Game.Casting
     /// </summary>
     public class Obstical : Actor
     {
+        Random rand = new Random();
         private string _message = "O";
         public Obstical(string obsticle)
         {
@@ -21,17 +22,17 @@ namespace Unit06.Game.Casting
             if (obsticle == "obstical")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(100, 0));
+                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
             }
-            else if (obsticle == "obstical2")
+            if (obsticle == "obstical2")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(300, 50));
+                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
             }
-            else if (obsticle == "obstical3")
+            if (obsticle == "obstical3")
             {
                 SetColor(Constants.RED);
-                SetPosition(new Point(450, 50));
+                SetPosition(new Point(rand.Next(0,900), rand.Next(0,600)));
             }
             
         }
