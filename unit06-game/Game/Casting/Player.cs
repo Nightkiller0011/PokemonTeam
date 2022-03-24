@@ -14,24 +14,26 @@ namespace Unit06.Game.Casting
         /// Constructs a new instance of a Player.
         /// </summary>
 
-        private string _message = "#";
+        private string _message1 = "#";
+        private string _message2 = "&";
 
         public Player(string player)
         {
             // create the player
             Cast cast = new Cast();
 
-            SetText(_message);
 
             SetFontSize(Constants.FONT_SIZE);
 
             if (player == "player1")
             {
-                SetColor(Constants.RED);
+                SetText(_message1);
+                SetColor(Constants.YELLOW);
                 SetPosition(new Point(300, 575));
             }
             else if (player == "player2")
             {
+                SetText(_message2);
                 SetColor(Constants.GREEN);
                 SetPosition(new Point(600, 575));
             }
