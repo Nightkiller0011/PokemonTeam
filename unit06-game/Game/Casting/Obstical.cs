@@ -33,12 +33,12 @@ namespace Unit06.Game.Casting
                 
                 SetPosition(new Point(x, y));
             }
-            if (obsticle == "obstical2")
+            else if (obsticle == "obstical2")
             {
                 
                 SetPosition(new Point(x, y));
             }
-            if (obsticle == "obstical3")
+            else if (obsticle == "obstical3")
             {
                 
                 SetPosition(new Point(x, y));

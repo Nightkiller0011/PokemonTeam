@@ -15,6 +15,7 @@ namespace Unit06.Game.Scripting
         private KeyboardService keyboardService;
         private Point direction = new Point(0, -1 * Constants.CELL_SIZE);
         private Point direction2 = new Point(0, -1 * Constants.CELL_SIZE);
+      
 
 
         /// <summary>
@@ -34,8 +35,9 @@ namespace Unit06.Game.Scripting
             direction2 = new Point(0, 0);
 
             // Get players
-            List<Actor> players = cast.GetActors("player");
 
+            List<Actor> players = cast.GetActors("player");
+            List<Actor> obsticals = cast.GetActors("obstical");
             // Player 1's info
             Point player1Position = players[0].GetPosition();
             int player1X = player1Position.GetX();
@@ -46,135 +48,148 @@ namespace Unit06.Game.Scripting
             int player2X = player2Position.GetX();
             int player2Y = player2Position.GetY();
 
+            
+
             // player 1
             // left
-            if (keyboardService.IsKeyDown("a"))
+            foreach(Actor obstical in obsticals )
             {
-                int player1NewX = player1X - Constants.CELL_SIZE;
-                Point player1NewPosition = new Point(player1NewX, player1Y);
-                if (player1NewPosition.Equals(player2Position))
+                Point obsticasPosition = obstical.GetPosition();
+                if (keyboardService.IsKeyDown("a"))
                 {
-                    direction = new Point(0, 0);
+                    int player1NewX = player1X - Constants.CELL_SIZE;
+                    Point player1NewPosition = new Point(player1NewX, player1Y);
+                    if (player1NewPosition.Equals(player2Position) || player1NewPosition.Equals(obsticasPosition))
+                    {
+                        direction = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction = new Point(-Constants.CELL_SIZE, 0);
+                    }
+                    players[0].setDirection("left");
                 }
-                else
-                {
-                    direction = new Point(-Constants.CELL_SIZE, 0);
-                }
-                players[0].setDirection("left");
-            }
 
-            // right
-            if (keyboardService.IsKeyDown("d"))
-            {
-                int player1NewX = player1X + Constants.CELL_SIZE;
-                Point player1NewPosition = new Point(player1NewX, player1Y);
-                if (player1NewPosition.Equals(player2Position))
+                // right
+                if (keyboardService.IsKeyDown("d"))
                 {
-                    direction = new Point(0, 0);
+                    int player1NewX = player1X + Constants.CELL_SIZE;
+                    Point player1NewPosition = new Point(player1NewX, player1Y);
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition))
+                    {
+                        direction = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction = new Point(Constants.CELL_SIZE, 0);
+                    }
+                    players[0].setDirection("right");
                 }
-                else
-                {
-                    direction = new Point(Constants.CELL_SIZE, 0);
-                }
-                players[0].setDirection("right");
-            }
 
-            // up
-            if (keyboardService.IsKeyDown("w"))
-            {
-                int player1NewY = player1Y - Constants.CELL_SIZE;
-                Point player1NewPosition = new Point(player1X, player1NewY);
-                if (player1NewPosition.Equals(player2Position))
+                // up
+                if (keyboardService.IsKeyDown("w"))
                 {
-                    direction = new Point(0, 0);
+                    int player1NewY = player1Y - Constants.CELL_SIZE;
+                    Point player1NewPosition = new Point(player1X, player1NewY);
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition))
+                    {
+                        direction = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction = new Point(0, -Constants.CELL_SIZE);
+                    }
+                    players[0].setDirection("up");
                 }
-                else
-                {
-                    direction = new Point(0, -Constants.CELL_SIZE);
-                }
-                players[0].setDirection("up");
-            }
 
-            // down
-            if (keyboardService.IsKeyDown("s"))
-            {
-                int player1NewY = player1Y + Constants.CELL_SIZE;
-                Point player1NewPosition = new Point(player1X, player1NewY);
-                if (player1NewPosition.Equals(player2Position))
+                // down
+                if (keyboardService.IsKeyDown("s"))
                 {
-                    direction = new Point(0, 0);
+                    int player1NewY = player1Y + Constants.CELL_SIZE;
+                    Point player1NewPosition = new Point(player1X, player1NewY);
+                    if (player1NewPosition.Equals(player2Position)||player1NewPosition.Equals(obsticasPosition))
+                    {
+                        direction = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction = new Point(0, Constants.CELL_SIZE);
+                    }
+                    players[0].setDirection("down");
                 }
-                else
+                
+        
+                //foreach(Actor obstical in obsticals )
+                //{
+               // Point obsticasPosition2 = obstical.GetPosition();
+               // player 2
+               // left
+                if (keyboardService.IsKeyDown("j"))
                 {
-                    direction = new Point(0, Constants.CELL_SIZE);
+                    int player2NewX = player2X - Constants.CELL_SIZE;
+                    Point player2NewPosition = new Point(player2NewX, player2Y);
+                    if (player2NewPosition.Equals(player1Position)||player2NewPosition.Equals(obsticasPosition))
+                    {
+                        direction2 = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction2 = new Point(-Constants.CELL_SIZE, 0);
+                    }
+                    players[1].setDirection("left");
                 }
-                players[0].setDirection("down");
+
+                // right
+                if (keyboardService.IsKeyDown("l"))
+                {
+                    int player2NewX = player2X + Constants.CELL_SIZE;
+                    Point player2NewPosition = new Point(player2NewX, player2Y);
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition))
+                    {
+                        direction2 = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction2 = new Point(Constants.CELL_SIZE, 0);
+                    }
+                    players[1].setDirection("right");
+                }
+
+                // up
+                if (keyboardService.IsKeyDown("i"))
+                {
+                    int player2NewY = player2Y - Constants.CELL_SIZE;
+                    Point player2NewPosition = new Point(player2X, player2NewY);
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition))
+                    {
+                        direction2 = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction2 = new Point(0, -Constants.CELL_SIZE);
+                    }
+                    players[1].setDirection("up");
+                }
+
+                // down
+                if (keyboardService.IsKeyDown("k"))
+                {
+                    int player2NewY = player2Y + Constants.CELL_SIZE;
+                    Point player2NewPosition = new Point(player2X, player2NewY);
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition))
+                    {
+                        direction2 = new Point(0, 0);
+                    }
+                    else
+                    {
+                        direction2 = new Point(0, Constants.CELL_SIZE);
+                    }
+                    players[1].setDirection("down");
+                }
+                
             }
             
-            // player 2
-            // left
-            if (keyboardService.IsKeyDown("j"))
-            {
-                int player2NewX = player2X - Constants.CELL_SIZE;
-                Point player2NewPosition = new Point(player2NewX, player2Y);
-                if (player2NewPosition.Equals(player1Position))
-                {
-                    direction2 = new Point(0, 0);
-                }
-                else
-                {
-                    direction2 = new Point(-Constants.CELL_SIZE, 0);
-                }
-                players[1].setDirection("left");
-            }
-
-            // right
-            if (keyboardService.IsKeyDown("l"))
-            {
-                int player2NewX = player2X + Constants.CELL_SIZE;
-                Point player2NewPosition = new Point(player2NewX, player2Y);
-                if (player2NewPosition.Equals(player1Position))
-                {
-                    direction2 = new Point(0, 0);
-                }
-                else
-                {
-                    direction2 = new Point(Constants.CELL_SIZE, 0);
-                }
-                players[1].setDirection("right");
-            }
-
-            // up
-            if (keyboardService.IsKeyDown("i"))
-            {
-                int player2NewY = player2Y - Constants.CELL_SIZE;
-                Point player2NewPosition = new Point(player2X, player2NewY);
-                if (player2NewPosition.Equals(player1Position))
-                {
-                    direction2 = new Point(0, 0);
-                }
-                else
-                {
-                    direction2 = new Point(0, -Constants.CELL_SIZE);
-                }
-                players[1].setDirection("up");
-            }
-
-            // down
-            if (keyboardService.IsKeyDown("k"))
-            {
-                int player2NewY = player2Y + Constants.CELL_SIZE;
-                Point player2NewPosition = new Point(player2X, player2NewY);
-                if (player2NewPosition.Equals(player1Position))
-                {
-                    direction2 = new Point(0, 0);
-                }
-                else
-                {
-                    direction2 = new Point(0, Constants.CELL_SIZE);
-                }
-                players[1].setDirection("down");
-            }
+            
 
             if (keyboardService.IsKeyDown("e"))
             {
