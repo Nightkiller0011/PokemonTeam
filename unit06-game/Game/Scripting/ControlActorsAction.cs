@@ -48,18 +48,26 @@ namespace Unit06.Game.Scripting
             int player2X = player2Position.GetX();
             int player2Y = player2Position.GetY();
 
-            
+            // Obstacle1's info 
+            Point obstacle1Position = obsticals[0].GetPosition();
+
+            // obstacle2's info 
+            Point obstacle2Position = obsticals[1].GetPosition();
+
+            // obstacle3's info
+            Point obstacle3Position = obsticals[2].GetPosition();
+
 
             // player 1
             // left
-            foreach(Actor obstical in obsticals )
-            {
-                Point obsticasPosition = obstical.GetPosition();
+            // foreach(Actor obstical in obsticals )
+            // {
+                // Point obsticasPosition = obstical.GetPosition();
                 if (keyboardService.IsKeyDown("a"))
                 {
                     int player1NewX = player1X - Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1NewX, player1Y);
-                    if (player1NewPosition.Equals(player2Position) || player1NewPosition.Equals(obsticasPosition))
+                    if (player1NewPosition.Equals(player2Position) || player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -75,7 +83,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewX = player1X + Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1NewX, player1Y);
-                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition))
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -91,7 +99,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewY = player1Y - Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1X, player1NewY);
-                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition))
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -107,7 +115,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewY = player1Y + Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1X, player1NewY);
-                    if (player1NewPosition.Equals(player2Position)||player1NewPosition.Equals(obsticasPosition))
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -117,6 +125,7 @@ namespace Unit06.Game.Scripting
                     }
                     players[0].setDirection("down");
                 }
+
                 
         
                 //foreach(Actor obstical in obsticals )
@@ -128,7 +137,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewX = player2X - Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2NewX, player2Y);
-                    if (player2NewPosition.Equals(player1Position)||player2NewPosition.Equals(obsticasPosition))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -144,7 +153,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewX = player2X + Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2NewX, player2Y);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -160,7 +169,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewY = player2Y - Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2X, player2NewY);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -176,7 +185,7 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewY = player2Y + Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2X, player2NewY);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -187,7 +196,7 @@ namespace Unit06.Game.Scripting
                     players[1].setDirection("down");
                 }
                 
-            }
+            // }
             
             
 
