@@ -22,6 +22,8 @@ namespace Unit06.Game.Scripting
         {
             List<Actor>players = cast.GetActors("player");
             List<Actor>enemies = cast.GetActors("enemy");
+            List<Actor> health = cast.GetActors("health");
+            List<Actor> score = cast.GetActors("score");
             Point player1Position = players[0].GetPosition();
             Point player2Position = players[1].GetPosition();
             
@@ -32,11 +34,15 @@ namespace Unit06.Game.Scripting
 
                 if (enemyPosition.Equals(player1Position))
                 {
-                    Console.WriteLine("player1 gets hurt");
+                    players[0].SetHealth(10);
+                    health[0].SetHealth(10);
+                    health[0].SetText("Player 1 Health: " + health[0].GetHealth());
                 }
                 if (enemyPosition.Equals(player2Position))
                 {
-                    Console.WriteLine("player2 gets hurt");
+                    players[1].SetHealth(10);
+                    health[1].SetHealth(10);
+                    health[1].SetText("Player 2 Health: " + health[1].GetHealth());
                 }
 
             }

@@ -33,11 +33,13 @@ namespace Unit06
 
             // Player 1's health
             Health Player1Health = new Health();
+            Player1Health.SetText("Player 1 Health: 100");
             Player1Health.SetPosition(new Point(0, 0));
             cast.AddActor("health", Player1Health);
 
             // PLayer 2's health
             Health Player2Health = new Health();
+            Player2Health.SetText("Player 2 Health: 100");
             Player2Health.SetPosition(new Point(750,0));
             cast.AddActor("health", Player2Health);
 

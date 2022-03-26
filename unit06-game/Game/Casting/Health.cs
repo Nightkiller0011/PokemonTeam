@@ -5,13 +5,12 @@ namespace Unit06.Game.Casting
         private int health = 100;
         public Health()
         {
-            ChangeHealth(0);
+            SetText($"Player Health: " + GetHealth());
         }
 
         public void ChangeHealth(int health)
-        {
-            this.health -= health;
-            SetText($"Player Health: {this.health}");
+        {           
+            SetText($"Player Health: " + GetHealth());
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Unit06.Game.Casting
         private Point velocity = new Point(0, 0);
         string direction = "up";
         string fightClass = "knight";
+        private int health = 100;
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -233,7 +234,8 @@ namespace Unit06.Game.Casting
                     attackSpot3 = new Point(currentX + Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
                     attackSpot4 = new Point(currentX + Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));
                     attackSpot5 = new Point(currentX - Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
-                    attackSpot6 = new Point(currentX - Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));                }
+                    attackSpot6 = new Point(currentX - Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));                
+                }
             }
             else if (fightClass == "archer")
             {
@@ -253,7 +255,8 @@ namespace Unit06.Game.Casting
                     attackSpot3 = new Point(currentX + (3*Constants.CELL_SIZE), currentY);
                     attackSpot4 = new Point(currentX + (4*Constants.CELL_SIZE), currentY);
                     attackSpot5 = new Point(currentX + (5*Constants.CELL_SIZE), currentY);
-                    attackSpot6 = new Point(currentX + (6*Constants.CELL_SIZE), currentY);                }
+                    attackSpot6 = new Point(currentX + (6*Constants.CELL_SIZE), currentY);                
+                }
                 if (facing == "up")
                 {
                     attackSpot1 = new Point(currentX, currentY - Constants.CELL_SIZE);
@@ -261,7 +264,8 @@ namespace Unit06.Game.Casting
                     attackSpot3 = new Point(currentX, currentY - (3*Constants.CELL_SIZE));
                     attackSpot4 = new Point(currentX, currentY - (4*Constants.CELL_SIZE));
                     attackSpot5 = new Point(currentX, currentY - (5*Constants.CELL_SIZE));
-                    attackSpot6 = new Point(currentX, currentY - (6*Constants.CELL_SIZE));                }
+                    attackSpot6 = new Point(currentX, currentY - (6*Constants.CELL_SIZE));                
+                }
                 if (facing == "down")
                 {
                     attackSpot1 = new Point(currentX, currentY + Constants.CELL_SIZE);
@@ -272,7 +276,19 @@ namespace Unit06.Game.Casting
                     attackSpot6 = new Point(currentX, currentY + (6*Constants.CELL_SIZE));
                 }
             }
+
             
         }
+        // Health that can be used for both enemys and the player
+        public int GetHealth()
+        {
+            return health;
+        }
+
+        public void SetHealth(int damage)
+        {
+            health -= damage;
+        }
+            
     }
 }
