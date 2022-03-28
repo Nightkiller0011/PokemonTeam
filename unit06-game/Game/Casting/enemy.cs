@@ -9,6 +9,7 @@ namespace Unit06.Game.Casting
     public class Enemy : Actor
     {
         //private string _message1 = "E";
+        private int EnemyValue = 1;
         public Enemy(string enemy, string messages)
         {
             int x = 0;
@@ -45,6 +46,16 @@ namespace Unit06.Game.Casting
                 
             }
             
+        }
+
+        public int GetValue()
+        {
+            return EnemyValue;
+        }
+
+        public void SetValue(int ValueMaultiplier)
+        {
+            EnemyValue *= ValueMaultiplier;
         }
 
     }

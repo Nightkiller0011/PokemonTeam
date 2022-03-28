@@ -32,10 +32,19 @@ namespace Unit06.Game.Scripting
             {
                 // HandleFoodCollisions(cast);
                 // HandleSegmentCollisions(cast);
+                HandlePlayerhealth(cast);
                 HandleGameOver(cast);
             }
         }
 
+        public void HandlePlayerhealth(Cast cast)
+        {
+            List<Actor>players = cast.GetActors("player");
+            if (players[0].GetHealth() <= 0 || players[1].GetHealth() <= 0)
+            {
+                isGameOver = true;
+            }
+        }
         /// <summary>
         /// Updates the score nd moves the food if the snake collides with it.
         /// </summary>
@@ -106,40 +115,19 @@ namespace Unit06.Game.Scripting
 
         private void HandleGameOver(Cast cast)
         {
+            List<Actor> score = cast.GetActors("score");
             if (isGameOver == true)
             {
-            // List<Actor> snakes = cast.GetActors("snake");
-            // Snake snake1 = (Snake) snakes[0];
-            // Snake snake2 = (Snake) snakes[1];
-            // List<Actor> segments = snake1.GetSegments();
-            // List<Actor> segments2 = snake2.GetSegments();
-            //     // Food food = (Food)cast.GetFirstActor("food");
+            
+                 int x = Constants.MAX_X / 2;
+                 int y = Constants.MAX_Y / 2;
+                 Point position = new Point(x, y);
 
-            //     // create a "game over" message
-            //     int x = Constants.MAX_X / 2;
-            //     int y = Constants.MAX_Y / 2;
-            //     Point position = new Point(x, y);
+                 Actor message = new Actor();
+                 message.SetText("Game Over! Your final score is ");
+                 message.SetPosition(position);
+                 cast.AddActor("messages", message);
 
-            //     Actor message = new Actor();
-            //     message.SetText("Game Over!");
-            //     message.SetPosition(position);
-            //     cast.AddActor("messages", message);
-
-            //     // make everything white
-            //     foreach (Actor segment in segments)
-            //     {
-            //         segment.SetColor(Constants.WHITE);
-            //         snake1.SetColor(Constants.WHITE);
-            //     }
-
-            //     foreach (Actor segment2 in segments2)
-            //     {
-            //         segment2.SetColor(Constants.WHITE);
-            //         snake2.SetColor(Constants.WHITE);
-            //     }
-                
-
-                // food.SetColor(Constants.WHITE);
             }
         }
 
