@@ -38,6 +38,9 @@ namespace Unit06.Game.Scripting
 
             List<Actor> players = cast.GetActors("player");
             List<Actor> obsticals = cast.GetActors("obstical");
+            List<Actor> health = cast.GetActors("health");
+            List<Actor> score = cast.GetActors("score");
+            
             // Player 1's info
             Point player1Position = players[0].GetPosition();
             int player1X = player1Position.GetX();
@@ -57,6 +60,14 @@ namespace Unit06.Game.Scripting
             // obstacle3's info
             Point obstacle3Position = obsticals[2].GetPosition();
 
+            // Health player 1 info
+            Point Health1Position = health[0].GetPosition();
+
+            // Health player 2 info
+            Point Health2Position = health[1].GetPosition();
+
+            // Score Position
+            Point ScorePosition = score[0].GetPosition();
 
             // player 1
             // left
@@ -67,7 +78,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewX = player1X - Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1NewX, player1Y);
-                    if (player1NewPosition.Equals(player2Position) || player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
+                    if (player1NewPosition.Equals(player2Position) || player1NewPosition.Equals(obstacle1Position) 
+                    || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position)
+                    || player1NewPosition.Equals(ScorePosition) || player1NewPosition.Equals(Health1Position) 
+                    || player1NewPosition.Equals(Health2Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -83,7 +97,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewX = player1X + Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1NewX, player1Y);
-                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position)
+                     || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position)
+                     || player1NewPosition.Equals(ScorePosition) || player1NewPosition.Equals(Health1Position) 
+                     || player1NewPosition.Equals(Health2Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -99,7 +116,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewY = player1Y - Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1X, player1NewY);
-                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position)
+                     || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position)
+                     || player1NewPosition.Equals(ScorePosition) || player1NewPosition.Equals(Health1Position) 
+                     || player1NewPosition.Equals(Health2Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -115,7 +135,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player1NewY = player1Y + Constants.CELL_SIZE;
                     Point player1NewPosition = new Point(player1X, player1NewY);
-                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position))
+                    if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obstacle1Position) 
+                    || player1NewPosition.Equals(obstacle2Position) || player1NewPosition.Equals(obstacle3Position)
+                    || player1NewPosition.Equals(ScorePosition) || player1NewPosition.Equals(Health1Position) 
+                    || player1NewPosition.Equals(Health2Position))
                     {
                         direction = new Point(0, 0);
                     }
@@ -137,7 +160,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewX = player2X - Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2NewX, player2Y);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) 
+                    || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position)
+                    || player2NewPosition.Equals(ScorePosition) || player2NewPosition.Equals(Health1Position)
+                    || player2NewPosition.Equals(Health2Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -153,7 +179,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewX = player2X + Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2NewX, player2Y);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) 
+                    || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position)
+                    || player2NewPosition.Equals(ScorePosition) || player2NewPosition.Equals(Health1Position)
+                    || player2NewPosition.Equals(Health2Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -169,7 +198,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewY = player2Y - Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2X, player2NewY);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) 
+                    || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position)
+                    || player2NewPosition.Equals(ScorePosition) || player2NewPosition.Equals(Health1Position)
+                    || player2NewPosition.Equals(Health2Position))
                     {
                         direction2 = new Point(0, 0);
                     }
@@ -185,7 +217,10 @@ namespace Unit06.Game.Scripting
                 {
                     int player2NewY = player2Y + Constants.CELL_SIZE;
                     Point player2NewPosition = new Point(player2X, player2NewY);
-                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position))
+                    if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obstacle1Position) 
+                    || player2NewPosition.Equals(obstacle2Position) || player2NewPosition.Equals(obstacle3Position)
+                    || player2NewPosition.Equals(ScorePosition) || player2NewPosition.Equals(Health1Position)
+                    || player2NewPosition.Equals(Health2Position))
                     {
                         direction2 = new Point(0, 0);
                     }
