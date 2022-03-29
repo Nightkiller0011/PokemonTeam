@@ -27,25 +27,8 @@ namespace Unit06.Game.Casting
 
             SetFontSize(Constants.FONT_SIZE);
 
-            if (enemy == "enemy")
-            {
-                SetColor(Constants.RED);
-                SetPosition(new Point(x, y));
-            }
-            else if(enemy == "enemy2")
-            {
-                SetColor(Constants.RED);
-                SetPosition(new Point(x,y));
-            }
-            else if (enemy == "enemy3")
-            {
-                SetColor(Constants.RED);
-                SetPosition(new Point(x,y));
-            }
-            {
-                
-            }
-            
+            SetColor(Constants.RED);
+            SetPosition(new Point(x, y));
         }
 
         public int GetValue()
