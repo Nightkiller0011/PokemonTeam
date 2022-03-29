@@ -104,7 +104,7 @@ namespace Unit06.Game.Scripting
                     {
                         int player1NewY = player1Y - Constants.CELL_SIZE;
                         Point player1NewPosition = new Point(player1X, player1NewY);
-                        if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition))
+                        if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition) || player1NewY == 0)
                        
                         {
                             direction = new Point(0, 0);
@@ -122,7 +122,7 @@ namespace Unit06.Game.Scripting
                     {
                         int player1NewY = player1Y + Constants.CELL_SIZE;
                         Point player1NewPosition = new Point(player1X, player1NewY);
-                        if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition) )
+                        if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition) || player1NewY == 600 )
                         
                         {
                             direction = new Point(0, 0);
@@ -178,7 +178,7 @@ namespace Unit06.Game.Scripting
                     {
                         int player2NewY = player2Y - Constants.CELL_SIZE;
                         Point player2NewPosition = new Point(player2X, player2NewY);
-                        if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) )
+                        if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) || player2NewY == 0)
                         
                         {
                             direction2 = new Point(0, 0);
@@ -196,7 +196,7 @@ namespace Unit06.Game.Scripting
                     {
                         int player2NewY = player2Y + Constants.CELL_SIZE;
                         Point player2NewPosition = new Point(player2X, player2NewY);
-                        if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) )
+                        if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) || player2NewY == 600 )
                        
                         {
                             direction2 = new Point(0, 0);
@@ -208,11 +208,6 @@ namespace Unit06.Game.Scripting
                         }
                         players[1].setDirection("down");
                     }
-                    else
-                    {
-                        direction2 = new Point(0, Constants.CELL_SIZE);
-                    }
-                    players[1].setDirection("down");
                 }
 
             players[0].SetVelocity(direction);
