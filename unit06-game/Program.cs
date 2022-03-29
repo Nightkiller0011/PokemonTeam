@@ -22,9 +22,9 @@ namespace Unit06
             cast.AddActor("enemy", new Enemy("enemy3", "E"));
 
             // obsticals
-            cast.AddActor("obstical", new Obstical("obstical"));
-            cast.AddActor("obstical", new Obstical("obstical2"));
-            cast.AddActor("obstical", new Obstical("obstical3"));
+            cast.AddActor("obstical", new Obstical("obstical", "W"));
+            cast.AddActor("obstical", new Obstical("obstical2","B"));
+            cast.AddActor("obstical", new Obstical("obstical3","R"));
 
             // scrore borad
             Score score = new Score();
