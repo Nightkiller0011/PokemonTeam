@@ -9,8 +9,8 @@ namespace Unit06.Game.Casting
     public class Obstical : Actor
     {
         Random rand = new Random();
-        private string _message = "O";
-        public Obstical(string obsticle)
+        // private string _message = "O";
+        public Obstical(string obsticle, string message)
         {
 
             int x = 0;
@@ -24,7 +24,7 @@ namespace Unit06.Game.Casting
             // create the player
             Cast cast = new Cast();
 
-            SetText(_message);
+            SetText(message);
 
             SetFontSize(Constants.FONT_SIZE);
 
