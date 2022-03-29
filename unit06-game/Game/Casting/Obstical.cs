@@ -27,23 +27,8 @@ namespace Unit06.Game.Casting
             SetText(message);
 
             SetFontSize(Constants.FONT_SIZE);
-
-            if (obsticle == "obstical")
-            {
-                
-                SetPosition(new Point(x, y));
-            }
-            else if (obsticle == "obstical2")
-            {
-                
-                SetPosition(new Point(x, y));
-            }
-            else if (obsticle == "obstical3")
-            {
-                
-                SetPosition(new Point(x, y));
-            }
             
+            SetPosition(new Point(x, y));
         }
 
     }
