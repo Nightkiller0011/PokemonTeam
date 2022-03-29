@@ -28,7 +28,7 @@ namespace Unit06
 
             // scrore borad
             Score score = new Score();
-            score.SetPosition(new Point(400,0));
+            score.SetPosition(new Point(450,0));
             cast.AddActor("score",  score);
 
             // Player 1's health
@@ -52,6 +52,7 @@ namespace Unit06
             script.AddAction("input", new ControlActorsAction(keyboardService));
             script.AddAction("update", new MoveActorsAction());
             script.AddAction("update", new HandleEnemyPlayerCollisionsAction());
+            script.AddAction("update", new Attack(keyboardService));
             //script.AddAction("update", new HandleObstacleCollisionsAction());
             script.AddAction("update", new HandleCollisionsAction());
             script.AddAction("output", new DrawActorsAction(videoService));
