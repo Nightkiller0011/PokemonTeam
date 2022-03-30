@@ -36,6 +36,8 @@ namespace Unit06.Game.Scripting
             List<Actor> score = cast.GetActors("score");
 
             List<Actor> health = cast.GetActors("health");
+            List<Actor> sword = cast.GetActors("sword");
+            List<Actor> arrows = cast.GetActors("arrow");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -68,6 +70,18 @@ namespace Unit06.Game.Scripting
             foreach (Actor healty in health)
             {
                 videoService.DrawActor(healty);
+            }
+
+            // Display Sword
+            foreach(Actor swords in sword)
+            {
+                videoService.DrawActor(swords);
+            }
+
+            // Display Arrows
+            foreach(Actor arrow in arrows)
+            {
+                videoService.DrawActor(arrow);
             }
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();

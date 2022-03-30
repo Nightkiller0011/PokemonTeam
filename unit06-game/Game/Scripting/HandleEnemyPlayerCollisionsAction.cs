@@ -20,8 +20,8 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script)
         {
-            List<Actor>players = cast.GetActors("player");
-            List<Actor>enemies = cast.GetActors("enemy");
+            List<Actor> players = cast.GetActors("player");
+            List<Actor> enemies = cast.GetActors("enemy");
             List<Actor> health = cast.GetActors("health");
             List<Actor> score = cast.GetActors("score");
             Point player1Position = players[0].GetPosition();

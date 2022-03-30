@@ -16,9 +16,12 @@ namespace Unit06.Game.Scripting
         private Point direction = new Point(0, -1 * Constants.CELL_SIZE);
         private Point direction2 = new Point(0, -1 * Constants.CELL_SIZE);
 
+<<<<<<< HEAD
         //private bool ItHit = false;
 
 
+=======
+>>>>>>> 0e4f3ff7d316003be1fb229e86e2e61cda83538e
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
         /// </summary>
@@ -67,7 +70,6 @@ namespace Unit06.Game.Scripting
                         int player1NewX = player1X - Constants.CELL_SIZE;
                         Point player1NewPosition = new Point(player1NewX, player1Y);
                         if (player1NewPosition.Equals(player2Position) || player1NewPosition.Equals(obsticasPosition)) 
-                       
                         {
                             direction = new Point(0, 0);
                             foundCollision = true;
@@ -104,7 +106,6 @@ namespace Unit06.Game.Scripting
                         int player1NewY = player1Y - Constants.CELL_SIZE;
                         Point player1NewPosition = new Point(player1X, player1NewY);
                         if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition) || player1NewY == 0)
-                       
                         {
                             direction = new Point(0, 0);
                             foundCollision = true;
@@ -121,8 +122,7 @@ namespace Unit06.Game.Scripting
                     {
                         int player1NewY = player1Y + Constants.CELL_SIZE;
                         Point player1NewPosition = new Point(player1X, player1NewY);
-                        if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition) || player1NewY == 600 )
-                        
+                        if (player1NewPosition.Equals(player2Position)|| player1NewPosition.Equals(obsticasPosition) || player1NewY == 600 ) 
                         {
                             direction = new Point(0, 0);
                             foundCollision = true;
@@ -134,7 +134,6 @@ namespace Unit06.Game.Scripting
                         players[0].setDirection("down");
                     }
 
-                
                     // player 2 direction
                     
                     if (keyboardService.IsKeyDown("j"))
@@ -142,7 +141,6 @@ namespace Unit06.Game.Scripting
                         int player2NewX = player2X - Constants.CELL_SIZE;
                         Point player2NewPosition = new Point(player2NewX, player2Y);
                         if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition)) 
-                        
                         {
                             direction2 = new Point(0, 0);
                             foundCollision = true;
@@ -160,7 +158,6 @@ namespace Unit06.Game.Scripting
                         int player2NewX = player2X + Constants.CELL_SIZE;
                         Point player2NewPosition = new Point(player2NewX, player2Y);
                         if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) )
-                        
                         {
                             direction2 = new Point(0, 0);
                             foundCollision = true;
@@ -178,7 +175,6 @@ namespace Unit06.Game.Scripting
                         int player2NewY = player2Y - Constants.CELL_SIZE;
                         Point player2NewPosition = new Point(player2X, player2NewY);
                         if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) || player2NewY == 0)
-                        
                         {
                             direction2 = new Point(0, 0);
                             foundCollision = true;
@@ -196,7 +192,6 @@ namespace Unit06.Game.Scripting
                         int player2NewY = player2Y + Constants.CELL_SIZE;
                         Point player2NewPosition = new Point(player2X, player2NewY);
                         if (player2NewPosition.Equals(player1Position)|| player2NewPosition.Equals(obsticasPosition) || player2NewY == 600 )
-                       
                         {
                             direction2 = new Point(0, 0);
                             foundCollision = true;

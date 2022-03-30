@@ -13,22 +13,33 @@ namespace Unit06.Game.Scripting
         {
             this.keyboardService = keyboardService;
         }
-        public void Execute(Cast cast, Script script)
+        public async void Execute(Cast cast, Script script)
         {
+            List<Knight> sword = new List<Knight>();
+            List<Arrow> arrows = new List<Arrow>();
             List<Actor> players = cast.GetActors("player");
             List<Actor> enemy = cast.GetActors("enemy");
-            Point currentSpot = players[x].GetPosition();
+            Point currentSpot = players[0].GetPosition();
+            Point currentSpot2 = players[1].GetPosition();
             int currentX = currentSpot.GetX();
             int currentY = currentSpot.GetY();
-            string facing = players[x].getDirection();
-            string fightClass = players[x].getFightClass(); 
+            int currentX2 = currentSpot2.GetX();
+            int currentY2 = currentSpot2.GetY();
+            string facing = players[0].getDirection();
+            string facing2 = players[1].getDirection();
+            string fightClass = players[0].getFightClass(); 
+            string fightClass2 = players[1].getFightClass();
             List<Point> attackzone = new List<Point>();
+            List<Point> attackzone2 = new List<Point>();
             for (int i=0 ; i <6 ; i++)
             {
                 attackzone.Add(new Point(0,0));
+                attackzone2.Add(new Point(0,0));
+                sword.Add(new Knight());
+                arrows.Add(new Arrow());
             }
 
-            if (fightClass == "knight" && keyboardService.IsKeyDown("e"))
+            if (fightClass == "knight" && keyboardService.IsKeyDown("e") && players[0].GetHealth() > 0)
             {
                 if (facing == "left")
                 {
@@ -38,6 +49,11 @@ namespace Unit06.Game.Scripting
                     attackzone[3] = new Point(currentX - (2*Constants.CELL_SIZE), currentY + Constants.CELL_SIZE);
                     attackzone[4] = new Point(currentX - Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX - (2*Constants.CELL_SIZE), currentY - Constants.CELL_SIZE);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        sword[i].SetPosition(attackzone[i]);
+                        cast.AddActor("sword", sword[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
                         foreach (Point attack in attackzone)
@@ -65,6 +81,11 @@ namespace Unit06.Game.Scripting
                     attackzone[3] = new Point(currentX + (2*Constants.CELL_SIZE), currentY + Constants.CELL_SIZE);
                     attackzone[4] = new Point(currentX + Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX + (2*Constants.CELL_SIZE), currentY - Constants.CELL_SIZE);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        sword[i].SetPosition(attackzone[i]);
+                        cast.AddActor("sword", sword[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
                         foreach (Point attack in attackzone)
@@ -92,6 +113,11 @@ namespace Unit06.Game.Scripting
                     attackzone[3] = new Point(currentX + Constants.CELL_SIZE, currentY - (2*Constants.CELL_SIZE));
                     attackzone[4] = new Point(currentX - Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX - Constants.CELL_SIZE, currentY - (2*Constants.CELL_SIZE));
+                    for (int i = 0; i < 6; i++)
+                    {
+                        sword[i].SetPosition(attackzone[i]);
+                        cast.AddActor("sword", sword[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
                         foreach (Point attack in attackzone)
@@ -112,12 +138,18 @@ namespace Unit06.Game.Scripting
                 }
                 if (facing == "down")
                 {
+                    Console.WriteLine(fightClass2);
                     attackzone[0] = new Point(currentX, currentY + Constants.CELL_SIZE);
                     attackzone[1] = new Point(currentX, currentY  + (2*Constants.CELL_SIZE));
                     attackzone[2] = new Point(currentX + Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
                     attackzone[3] = new Point(currentX + Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));
                     attackzone[4] = new Point(currentX - Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX - Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));
+                    for (int i = 0; i < 6; i++)
+                    {
+                        sword[i].SetPosition(attackzone[i]);
+                        cast.AddActor("sword", sword[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
                         foreach (Point attack in attackzone)
@@ -137,21 +169,27 @@ namespace Unit06.Game.Scripting
                     }                
                 }
             }
-            else if (fightClass == "archer" && keyboardService.IsKeyDown("o"))
+
+            
+
+            if (fightClass2 == "archer" && keyboardService.IsKeyDown("o") && players[1].GetHealth() > 0)
             {
-                Console.WriteLine("Arrow");
-                x = 1;
-                if (facing == "left")
+                if (facing2 == "left")
                 {
-                    attackzone[0] = new Point(currentX - Constants.CELL_SIZE, currentY);
-                    attackzone[1] = new Point(currentX - (2*Constants.CELL_SIZE), currentY);
-                    attackzone[2] = new Point(currentX - (3*Constants.CELL_SIZE), currentY);
-                    attackzone[3] = new Point(currentX - (4*Constants.CELL_SIZE), currentY);
-                    attackzone[4] = new Point(currentX - (5*Constants.CELL_SIZE), currentY);
-                    attackzone[5] = new Point(currentX - (6*Constants.CELL_SIZE), currentY);
+                    attackzone2[0] = new Point(currentX2 - Constants.CELL_SIZE, currentY2);
+                    attackzone2[1] = new Point(currentX2 - (2*Constants.CELL_SIZE), currentY2);
+                    attackzone2[2] = new Point(currentX2 - (3*Constants.CELL_SIZE), currentY2);
+                    attackzone2[3] = new Point(currentX2 - (4*Constants.CELL_SIZE), currentY2);
+                    attackzone2[4] = new Point(currentX2 - (5*Constants.CELL_SIZE), currentY2);
+                    attackzone2[5] = new Point(currentX2 - (6*Constants.CELL_SIZE), currentY2);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        arrows[i].SetPosition(attackzone2[i]);
+                        cast.AddActor("arrow", arrows[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
-                        foreach (Point attack in attackzone)
+                        foreach (Point attack in attackzone2)
                         {
                             Point enemysw = enemys.GetPosition();
                             int enemysx = enemysw.GetX();
@@ -167,17 +205,22 @@ namespace Unit06.Game.Scripting
                         }
                     }
                 }
-                if (facing == "right")
+                if (facing2 == "right")
                 {
-                    attackzone[0] = new Point(currentX + Constants.CELL_SIZE, currentY);
-                    attackzone[1] = new Point(currentX + (2*Constants.CELL_SIZE), currentY);
-                    attackzone[2] = new Point(currentX + (3*Constants.CELL_SIZE), currentY);
-                    attackzone[3] = new Point(currentX + (4*Constants.CELL_SIZE), currentY);
-                    attackzone[4] = new Point(currentX + (5*Constants.CELL_SIZE), currentY);
-                    attackzone[5] = new Point(currentX + (6*Constants.CELL_SIZE), currentY);
+                    attackzone2[0] = new Point(currentX2 + Constants.CELL_SIZE, currentY2);
+                    attackzone2[1] = new Point(currentX2 + (2*Constants.CELL_SIZE), currentY2);
+                    attackzone2[2] = new Point(currentX2 + (3*Constants.CELL_SIZE), currentY2);
+                    attackzone2[3] = new Point(currentX2 + (4*Constants.CELL_SIZE), currentY2);
+                    attackzone2[4] = new Point(currentX2 + (5*Constants.CELL_SIZE), currentY2);
+                    attackzone2[5] = new Point(currentX2 + (6*Constants.CELL_SIZE), currentY2);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        arrows[i].SetPosition(attackzone2[i]);
+                        cast.AddActor("arrow", arrows[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
-                        foreach (Point attack in attackzone)
+                        foreach (Point attack in attackzone2)
                         {
                             Point enemysw = enemys.GetPosition();
                             int enemysx = enemysw.GetX();
@@ -193,17 +236,22 @@ namespace Unit06.Game.Scripting
                         }
                     }                
                 }
-                if (facing == "up")
+                if (facing2 == "up")
                 {
-                    attackzone[0] = new Point(currentX, currentY - Constants.CELL_SIZE);
-                    attackzone[1] = new Point(currentX, currentY - (2*Constants.CELL_SIZE));
-                    attackzone[2] = new Point(currentX, currentY - (3*Constants.CELL_SIZE));
-                    attackzone[3] = new Point(currentX, currentY - (4*Constants.CELL_SIZE));
-                    attackzone[4] = new Point(currentX, currentY - (5*Constants.CELL_SIZE));
-                    attackzone[5] = new Point(currentX, currentY - (6*Constants.CELL_SIZE)); 
+                    attackzone2[0] = new Point(currentX2, currentY2 - Constants.CELL_SIZE);
+                    attackzone2[1] = new Point(currentX2, currentY2 - (2*Constants.CELL_SIZE));
+                    attackzone2[2] = new Point(currentX2, currentY2 - (3*Constants.CELL_SIZE));
+                    attackzone2[3] = new Point(currentX2, currentY2 - (4*Constants.CELL_SIZE));
+                    attackzone2[4] = new Point(currentX2, currentY2 - (5*Constants.CELL_SIZE));
+                    attackzone2[5] = new Point(currentX2, currentY2 - (6*Constants.CELL_SIZE)); 
+                    for (int i = 0; i < 6; i++)
+                    {
+                        arrows[i].SetPosition(attackzone2[i]);
+                        cast.AddActor("arrow", arrows[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
-                        foreach (Point attack in attackzone)
+                        foreach (Point attack in attackzone2)
                         {
                             Point enemysw = enemys.GetPosition();
                             int enemysx = enemysw.GetX();
@@ -219,17 +267,22 @@ namespace Unit06.Game.Scripting
                         }
                     }               
                 }
-                if (facing == "down")
+                if (facing2 == "down")
                 {
-                    attackzone[0] = new Point(currentX, currentY + Constants.CELL_SIZE);
-                    attackzone[1] = new Point(currentX, currentY + (2*Constants.CELL_SIZE));
-                    attackzone[2] = new Point(currentX, currentY + (3*Constants.CELL_SIZE));
-                    attackzone[3] = new Point(currentX, currentY + (4*Constants.CELL_SIZE));
-                    attackzone[4] = new Point(currentX, currentY + (5*Constants.CELL_SIZE));
-                    attackzone[5] = new Point(currentX, currentY + (6*Constants.CELL_SIZE));
+                    attackzone2[0] = new Point(currentX2, currentY2 + Constants.CELL_SIZE);
+                    attackzone2[1] = new Point(currentX2, currentY2 + (2*Constants.CELL_SIZE));
+                    attackzone2[2] = new Point(currentX2, currentY2 + (3*Constants.CELL_SIZE));
+                    attackzone2[3] = new Point(currentX2, currentY2 + (4*Constants.CELL_SIZE));
+                    attackzone2[4] = new Point(currentX2, currentY2 + (5*Constants.CELL_SIZE));
+                    attackzone2[5] = new Point(currentX2, currentY2 + (6*Constants.CELL_SIZE));
+                    for (int i = 0; i < 6; i++)
+                    {
+                        arrows[i].SetPosition(attackzone2[i]);
+                        cast.AddActor("arrow", arrows[i]);
+                    }
                     foreach (Actor enemys in enemy)
                     {
-                        foreach (Point attack in attackzone)
+                        foreach (Point attack in attackzone2)
                         {
                             Point enemysw = enemys.GetPosition();
                             int enemysx = enemysw.GetX();
