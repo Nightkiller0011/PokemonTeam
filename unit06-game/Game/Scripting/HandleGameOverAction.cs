@@ -24,14 +24,19 @@ namespace Unit06.Game.Scripting
         {
             List<Actor> players = cast.GetActors("player");
 
-            foreach (Actor player in players)
+            // foreach (Actor player in players)
+            // {
+            //     int health = player.GetHealth();
+            //     if (health <= 0)
+            //     {
+            //         player.SetColor(Constants.WHITE);
+            //         //cast.RemoveActor("player", player);
+            //     }
+            // }
+            if ((players[0].GetColor() == Constants.WHITE) && (players[1].GetColor() == Constants.WHITE))
             {
-                int health = player.GetHealth();
-                if (health <= 0)
-                {
-                    player.SetColor(Constants.WHITE);
-                    //cast.RemoveActor("player", player);
-                }
+                cast.GetFirstActor("gameover").SetText("Game Over!");
+                SetAllThingsWhite(cast);
             }
         }
 

@@ -38,6 +38,7 @@ namespace Unit06.Game.Scripting
             List<Actor> health = cast.GetActors("health");
             List<Actor> sword = cast.GetActors("sword");
             List<Actor> arrows = cast.GetActors("arrow");
+            Actor gameover = cast.GetFirstActor("gameover");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -83,6 +84,9 @@ namespace Unit06.Game.Scripting
             {
                 videoService.DrawActor(arrow);
             }
+
+            // Display Game Over
+            videoService.DrawActor(gameover);
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();
         }

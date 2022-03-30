@@ -31,6 +31,9 @@ namespace Unit06
             score.SetPosition(new Point(450,0));
             cast.AddActor("score",  score);
 
+            // Game Over text
+            cast.AddActor("gameover", new GameOver());
+
             // Player 1's health
             Health Player1Health = new Health();
             Player1Health.SetText("Player 1 Health: 100");

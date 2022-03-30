@@ -14,7 +14,7 @@ namespace Unit06.Game.Scripting
 
         public HandleActorsDeath()
         {
-            health = 0;
+            // health = 0;
         }
 
         public void RemoveActor(Cast cast, Script script)
@@ -28,29 +28,26 @@ namespace Unit06.Game.Scripting
             List<Actor> enemies = cast.GetActors("enemy");
            
     
-            foreach (Actor actor in players )
+            foreach (Actor player in players)
             {
-                health = actor.GetHealth();
-                if ( health == 0)
+                health = player.GetHealth();
+                if (health == 0)
                 {
-                     cast.RemoveActor("player",actor);
+                    // cast.RemoveActor("player",actor);
+                    player.SetColor(Constants.WHITE);
                 }
             }   
                
-            foreach(Actor enemy in enemies)
-            {   
-                enemy.GetHealth();
+            // foreach(Actor enemy in enemies)
+            // {   
+            //     enemy.GetHealth();
 
-                if ( health == 0)
-                {
-                    
-                    cast.RemoveActor("enemies",enemy);
-                }
-            }
-            
-
-           
+            //     if (health == 0)
+            //     {
+            //         // cast.RemoveActor("enemies",enemy);
+            //         enemy.SetColor(Constants.WHITE);
+            //     }
+            // }
         }
-        
     }
 }
