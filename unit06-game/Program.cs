@@ -55,6 +55,7 @@ namespace Unit06
             script.AddAction("update", new Attack(keyboardService));
             //script.AddAction("update", new HandleObstacleCollisionsAction());
             script.AddAction("update", new HandleCollisionsAction());
+            script.AddAction("update", new HandleWeponCollisionsAction());
             script.AddAction("update", new HandleGameoverAction());
             script.AddAction("output", new DrawActorsAction(videoService));
 

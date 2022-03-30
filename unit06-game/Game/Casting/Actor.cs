@@ -174,7 +174,7 @@ namespace Unit06.Game.Casting
         // This function sets Class type
         public void setFightClass(string type)
         {
-            type = fightClass;
+            fightClass = type;
         }
 
         // This function gets Class Tye
