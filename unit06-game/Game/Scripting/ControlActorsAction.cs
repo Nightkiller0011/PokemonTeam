@@ -16,12 +16,9 @@ namespace Unit06.Game.Scripting
         private Point direction = new Point(0, -1 * Constants.CELL_SIZE);
         private Point direction2 = new Point(0, -1 * Constants.CELL_SIZE);
 
-<<<<<<< HEAD
+
         //private bool ItHit = false;
 
-
-=======
->>>>>>> 0e4f3ff7d316003be1fb229e86e2e61cda83538e
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
         /// </summary>
