@@ -56,6 +56,7 @@ namespace Unit06
             //script.AddAction("update", new HandleObstacleCollisionsAction());
             script.AddAction("update", new HandleCollisionsAction());
             script.AddAction("update", new HandleGameoverAction());
+            script.AddAction("update", new HandleActorsDeath());
             script.AddAction("output", new DrawActorsAction(videoService));
 
             // start the game

@@ -30,7 +30,7 @@ namespace Unit06.Game.Scripting
                 if (health <= 0)
                 {
                     player.SetColor(Constants.WHITE);
-                    // cast.RemoveActor("player", player);
+                    //cast.RemoveActor("player", player);
                 }
             }
         }

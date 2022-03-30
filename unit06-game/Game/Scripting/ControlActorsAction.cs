@@ -16,7 +16,7 @@ namespace Unit06.Game.Scripting
         private Point direction = new Point(0, -1 * Constants.CELL_SIZE);
         private Point direction2 = new Point(0, -1 * Constants.CELL_SIZE);
 
-        private bool ItHit = false;
+        //private bool ItHit = false;
 
 
         /// <summary>
@@ -70,7 +70,6 @@ namespace Unit06.Game.Scripting
                        
                         {
                             direction = new Point(0, 0);
-                            Console.WriteLine("found collision");
                             foundCollision = true;
                         }
                         else
