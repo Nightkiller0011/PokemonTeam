@@ -17,14 +17,19 @@ namespace Unit06
             cast.AddActor("player", new Player("player2"));
 
             //enemies
-            cast.AddActor("enemy", new Enemy("enemy", "Z"));
-            cast.AddActor("enemy", new Enemy("enemy2", "E"));
-            cast.AddActor("enemy", new Enemy("enemy3", "M"));
+            for (int i = 0; i < 5; i++)
+            {
+                cast.AddActor("enemy", new Enemy("zombie" + i, "Z"));
+                cast.AddActor("enemy", new Enemy("skeleton" + i, "S"));
+                cast.AddActor("enemy", new Enemy("minator" + i, "M"));
+            }
+
+            
 
             // obsticals
             cast.AddActor("obstical", new Obstical("obstical", "W"));
-            cast.AddActor("obstical", new Obstical("obstical2","B"));
-            cast.AddActor("obstical", new Obstical("obstical3","R"));
+            cast.AddActor("obstical", new Obstical("obstical2", "B"));
+            cast.AddActor("obstical", new Obstical("obstical3", "R"));
 
             // scrore borad
             Score score = new Score();
@@ -43,13 +48,13 @@ namespace Unit06
             // PLayer 2's health
             Health Player2Health = new Health();
             Player2Health.SetText("Player 2 Health: 100");
-            Player2Health.SetPosition(new Point(750,0));
+            Player2Health.SetPosition(new Point(750, 0));
             cast.AddActor("health", Player2Health);
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
-           
+
             // create the script
             Script script = new Script();
             script.AddAction("input", new ControlActorsAction(keyboardService));

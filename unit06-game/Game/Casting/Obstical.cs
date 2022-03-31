@@ -10,6 +10,9 @@ namespace Unit06.Game.Casting
     {
         Random rand = new Random();
         // private string _message = "O";
+
+        List<string> n = new List<string>(2){"a", "b"};
+        
         public Obstical(string obsticle, string message)
         {
 
