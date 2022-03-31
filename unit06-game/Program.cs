@@ -33,13 +33,8 @@ namespace Unit06
 
             // scrore borad
             Score score = new Score();
-<<<<<<< HEAD
-            score.SetPosition(new Point(400, 0));
-            cast.AddActor("score", score);
-=======
             score.SetPosition(new Point(450,0));
             cast.AddActor("score",  score);
->>>>>>> 94633d8eaa39a8d22115239f32339e140d5b299c
 
             // Game Over text
             cast.AddActor("gameover", new GameOver());
