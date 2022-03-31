@@ -19,6 +19,7 @@ namespace Unit06.Game.Scripting
             List<Arrow> arrows = new List<Arrow>();
             List<Actor> players = cast.GetActors("player");
             List<Actor> enemy = cast.GetActors("enemy");
+            Actor score = cast.GetFirstActor("score");
             Point currentSpot = players[0].GetPosition();
             Point currentSpot2 = players[1].GetPosition();
             int currentX = currentSpot.GetX();
@@ -66,8 +67,8 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
+                                score.SetScore(10);
+                                Console.WriteLine(score.GetScore());
                             }
                         }
                     }
@@ -98,8 +99,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }
@@ -130,8 +129,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }
@@ -162,8 +159,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }                
@@ -199,8 +194,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }
@@ -230,8 +223,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }                
@@ -261,8 +252,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }               
@@ -292,8 +281,6 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                Console.WriteLine("hit");
-                                Console.WriteLine(enemys.GetHealth());
                             }
                         }
                     }

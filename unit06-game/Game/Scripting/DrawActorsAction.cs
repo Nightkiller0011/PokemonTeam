@@ -33,7 +33,7 @@ namespace Unit06.Game.Scripting
 
             List<Actor> obsticals = cast.GetActors("obstical");
 
-            List<Actor> score = cast.GetActors("score");
+            Actor score = cast.GetFirstActor("score");
 
             List<Actor> health = cast.GetActors("health");
             List<Actor> sword = cast.GetActors("sword");
@@ -61,11 +61,9 @@ namespace Unit06.Game.Scripting
                 videoService.DrawActor(obstical);
             }
 
-            // Display Score
-            foreach (Actor scores in score)
-            {
-                videoService.DrawActor(scores);
-            }
+            // Display Score 
+            videoService.DrawActor(score);
+            
 
             // Display Health
             foreach (Actor healty in health)

@@ -18,7 +18,7 @@ namespace Unit06.Game.Casting
         /// </summary>
         public Score()
         {
-            AddPoints(0);
+            SetText($"Score: " + GetScore());
         }
 
         /// <summary>

@@ -26,6 +26,7 @@ namespace Unit06.Game.Scripting
         {
             List<Actor> players = cast.GetActors("player");
             List<Actor> enemies = cast.GetActors("enemy");
+            Actor scores = cast.GetFirstActor("score");
            
     
             foreach (Actor player in players)
@@ -46,6 +47,9 @@ namespace Unit06.Game.Scripting
                 {
                     // cast.RemoveActor("enemies",enemy);
                     enemy.SetText("");
+                    scores.SetScore(10);
+                    scores.SetText("Score: " + scores.GetScore());
+                    enemy.SetHealth(1);
                 }
             }
         }

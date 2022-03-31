@@ -123,7 +123,7 @@ namespace Unit06.Game.Scripting
                     {
                         int player1NewY = player1Y - Constants.CELL_SIZE;
                         Point player1NewPosition = new Point(player1X, player1NewY);
-                        if (player1NewPosition.Equals(player2Position)) 
+                        if (player1NewPosition.Equals(player2Position) || player1NewY == 0) 
                         {
                             if (players[1].GetText() == "")
                             {
@@ -135,7 +135,7 @@ namespace Unit06.Game.Scripting
                                 foundCollision = true;
                             }
                         }
-                        else if (player1NewPosition.Equals(obsticasPosition))
+                        else if (player1NewPosition.Equals(obsticasPosition) || player1NewY == 0)
                         {
                             direction = new Point(0, 0);
                             foundCollision = true;
@@ -164,7 +164,7 @@ namespace Unit06.Game.Scripting
                                 foundCollision = true;
                             }
                         }
-                        else if (player1NewPosition.Equals(obsticasPosition))
+                        else if (player1NewPosition.Equals(obsticasPosition) || player1NewY == 600)
                         {
                             direction = new Point(0, 0);
                             foundCollision = true;
@@ -252,7 +252,7 @@ namespace Unit06.Game.Scripting
                                 foundCollision = true;
                             }
                         }
-                        else if (player2NewPosition.Equals(obsticasPosition))
+                        else if (player2NewPosition.Equals(obsticasPosition) || player2NewY == 0)
                         {
                             direction2 = new Point(0, 0);
                             foundCollision = true;
@@ -281,7 +281,7 @@ namespace Unit06.Game.Scripting
                                 foundCollision = true;
                             }
                         }
-                        else if (player2NewPosition.Equals(obsticasPosition))
+                        else if (player2NewPosition.Equals(obsticasPosition) || player2NewY == 600)
                         {
                             direction2 = new Point(0, 0);
                             foundCollision = true;

@@ -20,6 +20,7 @@ namespace Unit06.Game.Casting
         string direction = "left";
         string fightClass = "knight";
         private int health = 100;
+        private int score = 0;
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -192,6 +193,14 @@ namespace Unit06.Game.Casting
         public void SetHealth(int damage)
         {
             health -= damage;
+        }
+        public int GetScore()
+        {
+            return score;
+        }
+        public void SetScore(int v)
+        {
+            score += v;
         }
             
     }

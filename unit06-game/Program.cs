@@ -28,7 +28,7 @@ namespace Unit06
 
             // scrore borad
             Score score = new Score();
-            score.SetPosition(new Point(450,0));
+            score.SetPosition(new Point(425,0));
             cast.AddActor("score",  score);
 
             // Game Over text
