@@ -33,8 +33,16 @@ namespace Unit06
 
             // scrore borad
             Score score = new Score();
+<<<<<<< HEAD
             score.SetPosition(new Point(400, 0));
             cast.AddActor("score", score);
+=======
+            score.SetPosition(new Point(450,0));
+            cast.AddActor("score",  score);
+>>>>>>> 94633d8eaa39a8d22115239f32339e140d5b299c
+
+            // Game Over text
+            cast.AddActor("gameover", new GameOver());
 
             // Player 1's health
             Health Player1Health = new Health();
@@ -57,8 +65,11 @@ namespace Unit06
             script.AddAction("input", new ControlActorsAction(keyboardService));
             script.AddAction("update", new MoveActorsAction());
             script.AddAction("update", new HandleEnemyPlayerCollisionsAction());
-            //script.AddAction("update", new HandleObstacleCollisionsAction());
+            script.AddAction("update", new Attack(keyboardService));
             script.AddAction("update", new HandleCollisionsAction());
+            script.AddAction("update", new HandleWeponCollisionsAction());
+            script.AddAction("update", new HandleGameoverAction());
+            script.AddAction("update", new HandleActorsDeath());
             script.AddAction("output", new DrawActorsAction(videoService));
 
             // start the game

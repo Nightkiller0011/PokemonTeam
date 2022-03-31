@@ -30,6 +30,8 @@ namespace Unit06.Game.Casting
             SetText(message);
 
             SetFontSize(Constants.FONT_SIZE);
+
+            SetPosition(new Point(x, y));
             
             SetPosition(new Point(x, y));
         }

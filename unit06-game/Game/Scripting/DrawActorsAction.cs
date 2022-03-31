@@ -24,13 +24,7 @@ namespace Unit06.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            // List<Actor> snakes = cast.GetActors("snake");
-            // Snake snake1 = (Snake) snakes[0];
-            // Snake snake2 = (Snake) snakes[1];
-            // List<Actor> segments = snake1.GetSegments();
-            // List<Actor> segments2 = snake2.GetSegments();
-            //Actor score = cast.GetFirstActor("score");
-            // Actor food = cast.GetFirstActor("food");
+            
             List<Actor> messages = cast.GetActors("messages");
 
             List<Actor> players = cast.GetActors("player");
@@ -42,6 +36,9 @@ namespace Unit06.Game.Scripting
             List<Actor> score = cast.GetActors("score");
 
             List<Actor> health = cast.GetActors("health");
+            List<Actor> sword = cast.GetActors("sword");
+            List<Actor> arrows = cast.GetActors("arrow");
+            Actor gameover = cast.GetFirstActor("gameover");
             
             videoService.ClearBuffer();
             // videoService.DrawActors(segments);
@@ -75,6 +72,21 @@ namespace Unit06.Game.Scripting
             {
                 videoService.DrawActor(healty);
             }
+
+            // Display Sword
+            foreach(Actor swords in sword)
+            {
+                videoService.DrawActor(swords);
+            }
+
+            // Display Arrows
+            foreach(Actor arrow in arrows)
+            {
+                videoService.DrawActor(arrow);
+            }
+
+            // Display Game Over
+            videoService.DrawActor(gameover);
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();
         }
