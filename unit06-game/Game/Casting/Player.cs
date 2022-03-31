@@ -1,5 +1,5 @@
 using System;
-
+using Unit06;
 
 namespace Unit06.Game.Casting
 {
@@ -37,7 +37,7 @@ namespace Unit06.Game.Casting
                 SetPosition(new Point(600, 585));
                 setFightClass("archer");
             }
-
+            
         }
     }
 }

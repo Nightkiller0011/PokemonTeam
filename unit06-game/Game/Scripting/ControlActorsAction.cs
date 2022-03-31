@@ -12,6 +12,7 @@ namespace Unit06.Game.Scripting
     /// </summary>
     public class ControlActorsAction : Action
     {
+        
         private KeyboardService keyboardService;
         private Point direction = new Point(0, -1 * Constants.CELL_SIZE);
         private Point direction2 = new Point(0, -1 * Constants.CELL_SIZE);
