@@ -34,20 +34,20 @@ namespace Unit06.Game.Scripting
                 if (health == 0)
                 {
                     // cast.RemoveActor("player",actor);
-                    player.SetColor(Constants.WHITE);
+                    player.SetText("");
                 }
             }   
                
-            // foreach(Actor enemy in enemies)
-            // {   
-            //     enemy.GetHealth();
+            foreach(Actor enemy in enemies)
+            {   
+                health = enemy.GetHealth();
 
-            //     if (health == 0)
-            //     {
-            //         // cast.RemoveActor("enemies",enemy);
-            //         enemy.SetColor(Constants.WHITE);
-            //     }
-            // }
+                if (health == 0)
+                {
+                    // cast.RemoveActor("enemies",enemy);
+                    enemy.SetText("");
+                }
+            }
         }
     }
 }

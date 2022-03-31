@@ -4,7 +4,6 @@ using System.Data;
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
 
-
 namespace Unit06.Game.Scripting
 {
     public class HandleGameoverAction : Action
@@ -33,10 +32,10 @@ namespace Unit06.Game.Scripting
             //         //cast.RemoveActor("player", player);
             //     }
             // }
-            if ((players[0].GetColor() == Constants.WHITE) && (players[1].GetColor() == Constants.WHITE))
+            if ((players[0].GetText() == "") && (players[1].GetText() == ""))
             {
                 cast.GetFirstActor("gameover").SetText("Game Over!");
-                SetAllThingsWhite(cast);
+                // SetAllThingsWhite(cast);
             }
         }
 
