@@ -24,7 +24,7 @@ namespace Unit06.Game.Scripting
 
         public void FollowMovement()
         {
-            
+            Console.WriteLine("Following a player");
 
         }
 
@@ -36,16 +36,18 @@ namespace Unit06.Game.Scripting
         public async void Execute(Cast cast, Script script)
         {
             //if enemy doesnt detect player ther do BasicMovement else do Follow Movements
-            // if (!detectPlayer)
-            // {
-            //     BasicMovement();
-            // }
-            // else
-            // {
-            //     FollowMovement();
-            // }
-
-
+            List<Actor> enemies = cast.GetActors("enemy");
+            foreach (Actor enemy in enemies)
+            {
+                if (enemy.GetPlayerDetected())
+                {
+                    FollowMovement();
+                }
+                // else
+                // {
+                //     BasicMovement();
+                // }
+            }
         }
     }
   

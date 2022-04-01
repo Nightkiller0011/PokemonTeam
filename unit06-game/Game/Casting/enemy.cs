@@ -10,6 +10,8 @@ namespace Unit06.Game.Casting
     {
         //private string _message1 = "E";
         private int EnemyValue = 1;
+        // private bool playerDetected;
+        // private int sightDistance;
         public Enemy(string enemy, string messages, int vision)
         {
             int x = 0;
@@ -29,6 +31,8 @@ namespace Unit06.Game.Casting
 
             SetColor(Constants.RED);
             SetPosition(new Point(x, y));
+            SetPlayerDetected(false);
+            SetSightDistance(vision);
         }
 
         public int GetValue()
@@ -41,11 +45,5 @@ namespace Unit06.Game.Casting
             EnemyValue *= ValueMaultiplier;
         }
         
-        public void DetectPlayer()
-        {
-            // if(vision detect player)
-            // detectPlayer = true;
-        }
-
     }
 }

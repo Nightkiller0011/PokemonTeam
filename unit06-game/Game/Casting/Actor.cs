@@ -21,6 +21,8 @@ namespace Unit06.Game.Casting
         string fightClass = "knight";
         private int health = 100;
         private int score = 0;
+        private int sightDistance;
+        private bool playerDetected;
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -202,6 +204,27 @@ namespace Unit06.Game.Casting
         {
             score += v;
         }
-            
+
+        public void SetSightDistance(int number)
+        {
+            if (number <= 0)
+            {
+                number = 1;
+            }
+            sightDistance = number * Constants.CELL_SIZE;
+        }
+
+        public int GetSightDistance()
+        {
+            return sightDistance;
+        }
+        public void SetPlayerDetected(bool thing)
+        {
+            playerDetected = thing;
+        }
+        public bool GetPlayerDetected()
+        {
+            return playerDetected;
+        }
     }
 }
