@@ -18,7 +18,7 @@ namespace Unit06.Game.Casting
         private Point position = new Point(0, 0);
         private Point velocity = new Point(0, 0);
         string direction = "left";
-        string fightClass = "knight";
+        string fightClass = "";
         private int health = 100;
         private int score = 0;
         private int sightDistance;

@@ -9,7 +9,7 @@ namespace Unit06.Game.Casting
         {
 
             SetFontSize(Constants.FONT_SIZE);
-
+            setFightClass("arrow");
             SetText(_message);
             SetColor(Constants.GRAY);
         }

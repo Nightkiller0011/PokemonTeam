@@ -40,7 +40,11 @@ namespace Unit06.Game.Services
         public void ClearBuffer()
         {
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Raylib_cs.Color.BLACK);
+            //Raylib.ClearBackground("Assats/Assets/BackGround.png");
+            Image BackGround = Raylib.LoadImage("Assats/Assets/BackGround.png");
+            Texture2D texture = Raylib.LoadTextureFromImage(BackGround);
+            Raylib.UnloadImage(BackGround);
+            Raylib.DrawTexture(texture,0,0,Raylib_cs.Color.WHITE);
             if (debug)
             {
                 DrawGrid();
@@ -53,13 +57,44 @@ namespace Unit06.Game.Services
         /// <param name="actor">The actor to draw.</param>
         public void DrawActor(Actor actor)
         {
-            string text = actor.GetText();
             int x = actor.GetPosition().GetX();
             int y = actor.GetPosition().GetY();
-            int fontSize = actor.GetFontSize();
             Casting.Color c = actor.GetColor();
             Raylib_cs.Color color = ToRaylibColor(c);
-            Raylib.DrawText(text, x, y, fontSize, color);
+            if(actor.getFightClass() == "knight")
+            {
+                Image knight = Raylib.LoadImage("Assats/Assets/knight.png");
+                Texture2D img = Raylib.LoadTextureFromImage(knight);
+                Raylib.UnloadImage(knight);
+                Raylib.DrawTexture(img,x,y,color);
+            }
+            else if(actor.getFightClass() == "arrow")
+            {
+                Image knight = Raylib.LoadImage("Assats/Assets/arrow.png");
+                Texture2D img = Raylib.LoadTextureFromImage(knight);
+                Raylib.UnloadImage(knight);
+                Raylib.DrawTexture(img,x,y,color);
+            }
+            else if(actor.getFightClass() == "sword")
+            {
+                Image knight = Raylib.LoadImage("Assats/Assets/sword.png");
+                Texture2D img = Raylib.LoadTextureFromImage(knight);
+                Raylib.UnloadImage(knight);
+                Raylib.DrawTexture(img,x,y,color);
+            }
+            else if(actor.getFightClass() == "archer")
+            {
+                Image knight = Raylib.LoadImage("Assats/Assets/Archer.png");
+                Texture2D img = Raylib.LoadTextureFromImage(knight);
+                Raylib.UnloadImage(knight);
+                Raylib.DrawTexture(img,x,y,color);
+            }
+            else
+            {
+                string text = actor.GetText();
+                int fontSize = actor.GetFontSize();
+                Raylib.DrawText(text, x, y, fontSize, color);
+            }
         }
 
         /// <summary>
@@ -106,13 +141,18 @@ namespace Unit06.Game.Services
         /// </summary>
         private void DrawGrid()
         {
+            int i = 0;
+            int p = 0;
             for (int x = 0; x < Constants.MAX_X; x += Constants.CELL_SIZE)
             {
-                Raylib.DrawLine(x, 0, x, Constants.MAX_Y, Raylib_cs.Color.GRAY);
+                Raylib.DrawLine(x, i, x, Constants.MAX_Y, Raylib_cs.Color.WHITE);
+                i += Constants.CELL_SIZE;
+                
             }
             for (int y = 0; y < Constants.MAX_Y; y += Constants.CELL_SIZE)
             {
-                Raylib.DrawLine(0, y, Constants.MAX_X, y, Raylib_cs.Color.GRAY);
+                Raylib.DrawLine(p, y, Constants.MAX_X, y, Raylib_cs.Color.WHITE);
+                p += Constants.CELL_SIZE;
             }
         }
 
