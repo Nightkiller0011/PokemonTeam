@@ -12,21 +12,192 @@ namespace Unit06.Game.Scripting
     /// </summary>
     public class ControlEnemyAction : Action
     {
-        
+        private Random rand = new Random();
         public ControlEnemyAction()
         {
         }
 
-        public void BasicMovement(int direction, int movement)
+        public async void BasicMovement()
         {
+            //Direction is where the enemy is facing
+            //steps is how far it goes
+            int direction = rand.Next(0,3);
+            int steps = rand.Next(1,10);
+            for (int i = 0; i < steps; i++)
+            {
+                //Straight
+                if (direction == 0)
+                {
+                    
+                }
+                //Left
+                else if ( direction == 1)
+                {
 
+                }
+                //Right
+                else if (direction == 2)
+                {
+
+                }
+                //Back
+                else if( direction == 3)
+                {
+
+                }
+            }
         }
 
-        public void FollowMovement()
+        public void FollowMovement(List<Point> playerPositions, Point enemyPosition)
         {
+            /* first step is minus x and y from players position to enemy positions. So playerX - enemyX. 
+            If result number is +x +y than enemy moves down right.
+            If result is 0x +y than enemy moves down
+            If result is +x 0y than enemy moves right
+            If result is 0x 0y than enemy don't move
+            If result is -x -y than enemy move up left
+            If result is 0x -y than enemy move up
+            If result is -x 0y than enemy move left
+            If result is -x +y than enemy move down left
+            If result is +x -y than enemy move up right */
+
+            //Enemy Position
+            int enemyX = enemyPosition.GetX();
+            int enemyY = enemyPosition.GetY();
+
+            //Both player 1 and 2 positions
+            int player1X = playerPositions[0].GetX();
+            int player1Y = playerPositions[0].GetY();
+            int player2X = playerPositions[1].GetX();
+            int player2Y = playerPositions[1].GetY();
+
+            //get position radius from player 1
+            int enemyMovePlayer1X = player1X - enemyX;
+            int enemyMovePlayer1Y = player1Y - enemyY;
+
+            //get position radius from player 2
+            int enemyMovePlayer2X = player2X - enemyX;
+            int enemyMovePlayer2Y = player2Y - enemyY;
+
+            // See which player closer
+            int enemyToPlayer1 = System.Math.Abs(enemyMovePlayer1X) + System.Math.Abs(enemyMovePlayer1Y);
+            int enemyToPlayer2 = System.Math.Abs(enemyMovePlayer2X) + System.Math.Abs(enemyMovePlayer2Y);
+
+            //Check whos closer
+            /*
+               // +x +y = right down
+               // 0x +y = down
+               // +x 0y = right
+               // 0x 0y = nowhere
+               // -x -y = left up
+               // 0x -y = up
+               // -x 0y = left
+               // +x -y = right up
+               // -x +y = left down
+
+            */
+            if (enemyToPlayer1 <= enemyToPlayer2)
+            {
+                //Enemy movement towards player 1
+                if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y > 0)
+                {
+                    // +x +y = right down
+
+                }
+                else if (enemyMovePlayer1X == 0 && enemyMovePlayer1Y > 0)
+                {
+                    // 0x +y = down
+
+                }
+                else if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y == 0)
+                {
+                    // +x 0y = right
+
+                }
+                else if (enemyMovePlayer1X < 0 && enemyMovePlayer1Y < 0)
+                {
+                    // -x -y = left up
+
+                }
+                else if (enemyMovePlayer1X == 0 && enemyMovePlayer1Y < 0)
+                {
+                    // 0x -y = up
+
+                }
+                else if (enemyMovePlayer1X < 0 && enemyMovePlayer1Y == 0)
+                {
+                    // -x 0y = left
+
+                }
+                else if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y < 0)
+                {
+                    // +x -y = right up
+
+                }
+                else if (enemyMovePlayer1X < 0 && enemyMovePlayer1X > 0)
+                {
+                    // -x +y = left down
+
+                }
+                else
+                {
+                    // 0x 0y = nowhere
+
+                }
+            }
+            else if (enemyToPlayer2 <= enemyToPlayer1)
+            {
+                //Enemy movement towards player 2
+                if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y > 0)
+                {
+                    // +x +y = right down
+                }
+                else if (enemyMovePlayer2X == 0 && enemyMovePlayer2Y > 0)
+                {
+                    // 0x +y = down
+
+                }
+                else if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y == 0)
+                {
+                    // +x 0y = right
+
+                }
+                else if (enemyMovePlayer2X < 0 && enemyMovePlayer2Y < 0)
+                {
+                    // -x -y = left up
+
+                }
+                else if (enemyMovePlayer2X == 0 && enemyMovePlayer2Y < 0)
+                {
+                    // 0x -y = up
+
+                }
+                else if (enemyMovePlayer2X < 0 && enemyMovePlayer2Y == 0)
+                {
+                    // -x 0y = left
+
+                }
+                else if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y < 0)
+                {
+                    // +x -y = right up
+
+                }
+                else if (enemyMovePlayer2X < 0 && enemyMovePlayer2X > 0)
+                {
+                    // -x +y = left down
+
+                }
+                else
+                {
+                    // 0x 0y = nowhere
+                    
+                }
+            }
+
             Console.WriteLine("Following a player");
 
         }
+
 
         public void EnemyCollision()
         {
@@ -37,16 +208,19 @@ namespace Unit06.Game.Scripting
         {
             //if enemy doesnt detect player ther do BasicMovement else do Follow Movements
             List<Actor> enemies = cast.GetActors("enemy");
+            List<Actor> players = cast.GetActors("player");
+            List<Point> playersPositions = new List<Point>(2){players[0].GetPosition(), players[1].GetPosition()};
             foreach (Actor enemy in enemies)
             {
                 if (enemy.GetPlayerDetected())
                 {
-                    FollowMovement();
+                    Point enemyPos = enemy.GetPosition();
+                    FollowMovement(playersPositions, enemyPos);
                 }
-                // else
-                // {
-                //     BasicMovement();
-                // }
+                else
+                {
+                    BasicMovement();
+                }
             }
         }
     }
