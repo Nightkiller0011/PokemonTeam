@@ -66,28 +66,28 @@ namespace Unit06.Game.Services
                 Image knight = Raylib.LoadImage("Assats/Assets/knight.png");
                 Texture2D img = Raylib.LoadTextureFromImage(knight);
                 Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,color);
+                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
             }
             else if(actor.getFightClass() == "arrow")
             {
                 Image knight = Raylib.LoadImage("Assats/Assets/arrow.png");
                 Texture2D img = Raylib.LoadTextureFromImage(knight);
                 Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,color);
+                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
             }
             else if(actor.getFightClass() == "sword")
             {
                 Image knight = Raylib.LoadImage("Assats/Assets/sword.png");
                 Texture2D img = Raylib.LoadTextureFromImage(knight);
                 Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,color);
+                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
             }
             else if(actor.getFightClass() == "archer")
             {
                 Image knight = Raylib.LoadImage("Assats/Assets/Archer.png");
                 Texture2D img = Raylib.LoadTextureFromImage(knight);
                 Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,color);
+                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
             }
             else
             {

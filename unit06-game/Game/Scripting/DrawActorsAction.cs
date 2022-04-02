@@ -41,9 +41,7 @@ namespace Unit06.Game.Scripting
             Actor gameover = cast.GetFirstActor("gameover");
             
             videoService.ClearBuffer();
-            // videoService.DrawActors(segments);
-            // videoService.DrawActors(segments2);
-            // videoService.DrawActor(score);
+            
             foreach (Actor player in players)
             {
                 videoService.DrawActor(player);
@@ -66,25 +64,18 @@ namespace Unit06.Game.Scripting
             
 
             // Display Health
-            foreach (Actor healty in health)
-            {
-                videoService.DrawActor(healty);
-            }
+            videoService.DrawActors(health);
+            
 
             // Display Sword
-            foreach(Actor swords in sword)
-            {
-                videoService.DrawActor(swords);
-            }
-
+            videoService.DrawActors(sword);
+    
             // Display Arrows
-            foreach(Actor arrow in arrows)
-            {
-                videoService.DrawActor(arrow);
-            }
+            videoService.DrawActors(arrows);
 
             // Display Game Over
             videoService.DrawActor(gameover);
+
             // videoService.DrawActors(messages);
             videoService.FlushBuffer();
         }

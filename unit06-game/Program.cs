@@ -54,13 +54,14 @@ namespace Unit06
             // create the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
-
+            AudioService audioService = new AudioService();
+            
             // create the script
             Script script = new Script();
             script.AddAction("input", new ControlActorsAction(keyboardService));
             script.AddAction("update", new MoveActorsAction());
             script.AddAction("update", new HandleEnemyPlayerCollisionsAction());
-            script.AddAction("update", new Attack(keyboardService));
+            script.AddAction("update", new Attack(keyboardService, audioService));
             script.AddAction("update", new HandleCollisionsAction());
             script.AddAction("update", new HandleWeponCollisionsAction());
             script.AddAction("update", new HandleGameoverAction());

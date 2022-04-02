@@ -9,9 +9,11 @@ namespace Unit06.Game.Scripting
     {
         private int x = 0;
         private KeyboardService keyboardService;
-        public Attack( KeyboardService keyboardService)
+        private AudioService audioService;
+        public Attack( KeyboardService keyboardService, AudioService audioService)
         {
             this.keyboardService = keyboardService;
+            this.audioService = audioService;
         }
         public async void Execute(Cast cast, Script script)
         {
@@ -30,6 +32,7 @@ namespace Unit06.Game.Scripting
             string facing2 = players[1].getDirection();
             string fightClass = players[0].getFightClass(); 
             string fightClass2 = players[1].getFightClass();
+            bool Hit = false;
             List<Point> attackzone = new List<Point>();
             List<Point> attackzone2 = new List<Point>();
             for (int i=0 ; i <6 ; i++)
@@ -67,8 +70,7 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                                score.SetScore(10);
-                                Console.WriteLine(score.GetScore());
+                                Hit = true;
                             }
                         }
                     }
@@ -99,6 +101,7 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
+                                Hit = true;
                             }
                         }
                     }
@@ -129,6 +132,7 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
+                                Hit = true;
                             }
                         }
                     }
@@ -159,10 +163,13 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
+                                Hit = true;
                             }
+                            
                         }
                     }                
                 }
+                Playsound(Hit);
             }
 
             
@@ -194,6 +201,7 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
+                                Hit = true;
                             }
                         }
                     }
@@ -223,6 +231,7 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
+                                Hit = true;
                             }
                         }
                     }                
@@ -252,7 +261,8 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
-                            }
+                                Hit = true;
+                            } 
                         }
                     }               
                 }
@@ -281,11 +291,22 @@ namespace Unit06.Game.Scripting
                             if ( enemysx == attackx && enemysy == attacky)
                             {
                                 enemys.SetHealth(10);
+                                Hit = true;
                             }
+                            
                         }
                     }
                 }
+                Playsound(Hit);
             }
+        }
+        public void Playsound(bool play)
+        {
+            if (!play)
+            {
+                audioService.playsound("Assats/Assets/ElectronOrDectetorHit.wav");
+            }
+            
         }  
     }
 }
