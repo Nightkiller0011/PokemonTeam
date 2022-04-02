@@ -22,20 +22,12 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             List<Actor> players = cast.GetActors("player");
+            Actor score = cast.GetFirstActor("score");
 
-            // foreach (Actor player in players)
-            // {
-            //     int health = player.GetHealth();
-            //     if (health <= 0)
-            //     {
-            //         player.SetColor(Constants.WHITE);
-            //         //cast.RemoveActor("player", player);
-            //     }
-            // }
             if ((players[0].GetText() == "") && (players[1].GetText() == ""))
             {
-                cast.GetFirstActor("gameover").SetText("Game Over!");
-                // SetAllThingsWhite(cast);
+                cast.GetFirstActor("gameover").SetText("Game Over! Your Score is " + score.GetScore());
+                //RemoveAllActors(cast);
             }
         }
 

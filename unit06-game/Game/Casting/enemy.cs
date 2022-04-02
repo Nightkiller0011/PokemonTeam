@@ -33,6 +33,19 @@ namespace Unit06.Game.Casting
             SetPosition(new Point(x, y));
             SetPlayerDetected(false);
             SetSightDistance(vision);
+            CreateImage(messages);
+        }
+
+        public void CreateImage(string messages)
+        {
+            if (messages == "Z")
+            {
+                SetImage("Assats/Assets/Zombie.png");
+            }
+            else if (messages == "S")
+            {
+                SetImage("Assats/Assets/skeleton.png");
+            }
         }
 
         public int GetValue()

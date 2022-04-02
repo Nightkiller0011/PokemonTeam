@@ -28,7 +28,7 @@ namespace Unit06.Game.Scripting
         }
 
         /// <inheritdoc/>
-        public async void Execute(Cast cast, Script script)
+        public void Execute(Cast cast, Script script)
         {
             // Set the directions as 0
             direction = new Point(0, 0);

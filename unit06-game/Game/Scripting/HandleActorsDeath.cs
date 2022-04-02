@@ -34,7 +34,6 @@ namespace Unit06.Game.Scripting
                 health = player.GetHealth();
                 if (health == 0)
                 {
-                    // cast.RemoveActor("player",actor);
                     player.SetText("");
                 }
             }   
@@ -45,7 +44,6 @@ namespace Unit06.Game.Scripting
 
                 if (health == 0)
                 {
-                    // cast.RemoveActor("enemies",enemy);
                     enemy.SetText("");
                     scores.SetScore(10);
                     scores.SetText("Score: " + scores.GetScore());

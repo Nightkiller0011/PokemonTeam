@@ -24,7 +24,7 @@ namespace Unit06.Game.Casting
             SetFontSize(Constants.FONT_SIZE);
             SetText(_message);
             SetColor(Constants.YELLOW);
-            SetPosition(new Point(425, 300));
+            SetPosition(new Point(375, 300));
         }
     }
 }

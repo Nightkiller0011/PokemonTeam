@@ -13,6 +13,7 @@ namespace Unit06.Game.Casting
     public class Actor
     {
         private string text = "";
+        private string image = "";
         private int fontSize = 15;
         private Color color = Constants.WHITE;
         private Point position = new Point(0, 0);
@@ -225,6 +226,15 @@ namespace Unit06.Game.Casting
         public bool GetPlayerDetected()
         {
             return playerDetected;
+        }
+
+        public void SetImage(string pic)
+        {
+            image = pic;
+        }
+        public string GetImage()
+        {
+            return image;
         }
     }
 }

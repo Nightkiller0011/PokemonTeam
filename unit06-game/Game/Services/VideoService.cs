@@ -41,7 +41,7 @@ namespace Unit06.Game.Services
         {
             Raylib.BeginDrawing();
             //Raylib.ClearBackground("Assats/Assets/BackGround.png");
-            Image BackGround = Raylib.LoadImage("Assats/Assets/BackGround.png");
+            Image BackGround = Raylib.LoadImage("Assats/Assets/BackGround2.png");
             Texture2D texture = Raylib.LoadTextureFromImage(BackGround);
             Raylib.UnloadImage(BackGround);
             Raylib.DrawTexture(texture,0,0,Raylib_cs.Color.WHITE);
@@ -61,34 +61,15 @@ namespace Unit06.Game.Services
             int y = actor.GetPosition().GetY();
             Casting.Color c = actor.GetColor();
             Raylib_cs.Color color = ToRaylibColor(c);
-            if(actor.getFightClass() == "knight")
+            string file = actor.GetImage();
+            if(file != "" && actor.GetHealth() > 0)
             {
-                Image knight = Raylib.LoadImage("Assats/Assets/knight.png");
-                Texture2D img = Raylib.LoadTextureFromImage(knight);
-                Raylib.UnloadImage(knight);
+                Image pic = Raylib.LoadImage(file);
+                Texture2D img = Raylib.LoadTextureFromImage(pic);
+                Raylib.UnloadImage(pic);
                 Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
             }
-            else if(actor.getFightClass() == "arrow")
-            {
-                Image knight = Raylib.LoadImage("Assats/Assets/arrow.png");
-                Texture2D img = Raylib.LoadTextureFromImage(knight);
-                Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
-            }
-            else if(actor.getFightClass() == "sword")
-            {
-                Image knight = Raylib.LoadImage("Assats/Assets/sword.png");
-                Texture2D img = Raylib.LoadTextureFromImage(knight);
-                Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
-            }
-            else if(actor.getFightClass() == "archer")
-            {
-                Image knight = Raylib.LoadImage("Assats/Assets/Archer.png");
-                Texture2D img = Raylib.LoadTextureFromImage(knight);
-                Raylib.UnloadImage(knight);
-                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
-            }
+            
             else
             {
                 string text = actor.GetText();

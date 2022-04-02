@@ -10,6 +10,7 @@ namespace Unit06.Game.Casting
 
             SetFontSize(Constants.FONT_SIZE);
             setFightClass("arrow");
+            SetImage("Assats/Assets/arrow.png");
             SetText(_message);
             SetColor(Constants.GRAY);
         }

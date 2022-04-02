@@ -29,6 +29,7 @@ namespace Unit06.Game.Casting
                 SetColor(Constants.YELLOW);
                 SetPosition(new Point(300, 585));
                 setFightClass("knight");
+                SetImage("Assats/Assets/knight.png");
             }
             else if (player == "player2")
             {
@@ -36,6 +37,7 @@ namespace Unit06.Game.Casting
                 SetColor(Constants.GREEN);
                 SetPosition(new Point(600, 585));
                 setFightClass("archer");
+                SetImage("Assats/Assets/Archer.png");
             }
             
         }

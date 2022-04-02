@@ -7,7 +7,7 @@ namespace Unit06.Game.Scripting
 {
     public class Attack: Action
     {
-        private int x = 0;
+        
         private KeyboardService keyboardService;
         private AudioService audioService;
         public Attack( KeyboardService keyboardService, AudioService audioService)
@@ -15,7 +15,7 @@ namespace Unit06.Game.Scripting
             this.keyboardService = keyboardService;
             this.audioService = audioService;
         }
-        public async void Execute(Cast cast, Script script)
+        public void Execute(Cast cast, Script script)
         {
             List<Knight> sword = new List<Knight>();
             List<Arrow> arrows = new List<Arrow>();
@@ -35,6 +35,7 @@ namespace Unit06.Game.Scripting
             bool Hit = false;
             List<Point> attackzone = new List<Point>();
             List<Point> attackzone2 = new List<Point>();
+
             for (int i=0 ; i <6 ; i++)
             {
                 attackzone.Add(new Point(0,0));
@@ -58,22 +59,7 @@ namespace Unit06.Game.Scripting
                         sword[i].SetPosition(attackzone[i]);
                         cast.AddActor("sword", sword[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                        }
-                    }
+                    Hit = IsThereACollision(attackzone,enemy,Hit);
 
                 }
                 if (facing == "right")
@@ -89,22 +75,7 @@ namespace Unit06.Game.Scripting
                         sword[i].SetPosition(attackzone[i]);
                         cast.AddActor("sword", sword[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                        }
-                    }
+                    Hit = IsThereACollision(attackzone,enemy,Hit);
 
                 }
                 if (facing == "up")
@@ -120,22 +91,7 @@ namespace Unit06.Game.Scripting
                         sword[i].SetPosition(attackzone[i]);
                         cast.AddActor("sword", sword[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                        }
-                    }
+                    Hit = IsThereACollision(attackzone,enemy,Hit);
                 }
                 if (facing == "down")
                 {
@@ -151,23 +107,7 @@ namespace Unit06.Game.Scripting
                         sword[i].SetPosition(attackzone[i]);
                         cast.AddActor("sword", sword[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                            
-                        }
-                    }                
+                    Hit = IsThereACollision(attackzone,enemy,Hit);             
                 }
                 Playsound(Hit);
             }
@@ -189,22 +129,7 @@ namespace Unit06.Game.Scripting
                         arrows[i].SetPosition(attackzone2[i]);
                         cast.AddActor("arrow", arrows[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone2)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                        }
-                    }
+                   Hit = IsThereACollision(attackzone2,enemy,Hit);
                 }
                 if (facing2 == "right")
                 {
@@ -219,22 +144,7 @@ namespace Unit06.Game.Scripting
                         arrows[i].SetPosition(attackzone2[i]);
                         cast.AddActor("arrow", arrows[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone2)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                        }
-                    }                
+                    Hit = IsThereACollision(attackzone2,enemy,Hit);             
                 }
                 if (facing2 == "up")
                 {
@@ -249,22 +159,7 @@ namespace Unit06.Game.Scripting
                         arrows[i].SetPosition(attackzone2[i]);
                         cast.AddActor("arrow", arrows[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone2)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            } 
-                        }
-                    }               
+                    Hit = IsThereACollision(attackzone2,enemy,Hit);              
                 }
                 if (facing2 == "down")
                 {
@@ -279,23 +174,7 @@ namespace Unit06.Game.Scripting
                         arrows[i].SetPosition(attackzone2[i]);
                         cast.AddActor("arrow", arrows[i]);
                     }
-                    foreach (Actor enemys in enemy)
-                    {
-                        foreach (Point attack in attackzone2)
-                        {
-                            Point enemysw = enemys.GetPosition();
-                            int enemysx = enemysw.GetX();
-                            int enemysy = enemysw.GetY();
-                            int attackx = attack.GetX();
-                            int attacky = attack.GetY();
-                            if ( enemysx == attackx && enemysy == attacky)
-                            {
-                                enemys.SetHealth(10);
-                                Hit = true;
-                            }
-                            
-                        }
-                    }
+                    Hit = IsThereACollision(attackzone2,enemy,Hit);
                 }
                 Playsound(Hit);
             }
@@ -307,6 +186,27 @@ namespace Unit06.Game.Scripting
                 audioService.playsound("Assats/Assets/ElectronOrDectetorHit.wav");
             }
             
-        }  
+        } 
+        public bool IsThereACollision(List<Point> attackzone,List<Actor> enemys, bool hit)
+        {
+            foreach (Actor enemy in enemys)
+            {
+                foreach (Point attack in attackzone)
+                {
+                    Point enemysw = enemy.GetPosition();
+                    int enemysx = enemysw.GetX();
+                    int enemysy = enemysw.GetY();
+                    int attackx = attack.GetX();
+                    int attacky = attack.GetY();
+                    if ( enemysx == attackx && enemysy == attacky)
+                    {
+                        enemy.SetHealth(10);
+                        hit = true;
+                    }            
+                }
+            }
+
+            return hit;
+        } 
     }
 }
