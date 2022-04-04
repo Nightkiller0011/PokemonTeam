@@ -60,7 +60,7 @@ namespace Unit06.Game.Scripting
             
         }
 
-        public void FollowMovement(List<Point> playerPositions, Point enemyPosition, Actor enemy)
+        public void FollowMovement(List<Point> playerPositions, Point enemyPosition, Actor enemy, Cast cast)
         {
             /* first step is minus x and y from players position to enemy positions. So playerX - enemyX. 
             If result number is +x +y than enemy moves down right.
@@ -82,6 +82,11 @@ namespace Unit06.Game.Scripting
             int player1Y = playerPositions[0].GetY();
             int player2X = playerPositions[1].GetX();
             int player2Y = playerPositions[1].GetY();
+
+            //Both player 1 and 2 texts
+            List<Actor> players = cast.GetActors("player");
+            string player1Text = players[0].GetText();
+            string player2Text = players[1].GetText();
 
             //get position radius from player 1
             int enemyMovePlayer1X = player1X - enemyX;
@@ -108,7 +113,7 @@ namespace Unit06.Game.Scripting
                // -x +y = left down
 
             */
-            if (enemyToPlayer1 <= enemyToPlayer2)
+            if ((enemyToPlayer1 <= enemyToPlayer2) && (player1Text != "")) 
             {
                 //Enemy movement towards player 1
                 if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y > 0)
@@ -175,7 +180,7 @@ namespace Unit06.Game.Scripting
 
                 }
             }
-            else if (enemyToPlayer2 <= enemyToPlayer1)
+            else if ((enemyToPlayer2 <= enemyToPlayer1) && (player2Text != ""))
             {
                 //Enemy movement towards player 2
                 if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y > 0)
@@ -241,10 +246,9 @@ namespace Unit06.Game.Scripting
                 }
             }
 
-            Console.WriteLine("Following a player");
+            // Console.WriteLine("Following a player");
 
         }
-
 
         public void EnemyCollision()
         {
@@ -262,7 +266,7 @@ namespace Unit06.Game.Scripting
                 if (enemy.GetPlayerDetected())
                 {
                     Point enemyPos = enemy.GetPosition();
-                    FollowMovement(playersPositions, enemyPos, enemy);
+                    FollowMovement(playersPositions, enemyPos, enemy, cast);
                 }
                 else
                 {
@@ -272,5 +276,6 @@ namespace Unit06.Game.Scripting
             }
         }
     }
-  
 }
+  
+

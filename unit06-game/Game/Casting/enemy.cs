@@ -40,11 +40,15 @@ namespace Unit06.Game.Casting
         {
             if (messages == "Z")
             {
-                SetImage("Assats/Assets/Zombie.png");
+                SetImage("Assats/Assets/Zombie2.png");
             }
             else if (messages == "S")
             {
                 SetImage("Assats/Assets/skeleton.png");
+            }
+            else if (messages == "M")
+            {
+                SetImage("Assats/Assets/Minotaur.png");
             }
         }
 

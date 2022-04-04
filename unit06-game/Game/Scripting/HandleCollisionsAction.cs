@@ -30,8 +30,6 @@ namespace Unit06.Game.Scripting
         {
             if (isGameOver == false)
             {
-                // HandleFoodCollisions(cast);
-                // HandleSegmentCollisions(cast);
                 HandlePlayerhealth(cast);
                 HandleGameOver(cast);
             }
@@ -45,73 +43,8 @@ namespace Unit06.Game.Scripting
                 isGameOver = true;
             }
         }
-        /// <summary>
-        /// Updates the score nd moves the food if the snake collides with it.
-        /// </summary>
-        /// <param name="cast">The cast of actors.</param>
-        // private void HandleFoodCollisions(Cast cast)
-        // {
-        //     Snake snake = (Snake)cast.GetFirstActor("snake");
-        //     Score score = (Score)cast.GetFirstActor("score");
-        //     Food food = (Food)cast.GetFirstActor("food");
-            
-        //     if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
-        //     {
-        //         int points = food.GetPoints();
-        //         snake.GrowTail(points);
-        //         score.AddPoints(points);
-        //         food.Reset();
-        //     }
-        // }
 
-        /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
-        /// </summary>
-        /// <param name="cast">The cast of actors.</param>
-        // private void HandleSegmentCollisions(Cast cast)
-        // {
-        //     List<Actor> snakes = cast.GetActors("snake");
-        //     Snake snake1 = (Snake) snakes[0];
-        //     Snake snake2 = (Snake) snakes[1];
-        //     Actor head = snake1.GetHead();
-        //     List<Actor> body = snake1.GetBody();
-        //     Actor head2 = snake2.GetHead();
-        //     List<Actor> body2 = snake2.GetBody();
-
-        //     foreach (Actor segment in body)
-        //     {
-        //         if (segment.GetPosition().Equals(head.GetPosition()))
-        //         {
-        //             isGameOver = true;
-
-        //         }
-        //     }
-        //     foreach (Actor segment2 in body2)
-        //     {
-        //         if (segment2.GetPosition().Equals(head2.GetPosition()))
-        //         {
-        //             isGameOver = true;
-
-        //         }
-        //     }
-            
-        //     foreach (Actor segment in body)
-        //     {
-        //         if (segment.GetPosition().Equals(head2.GetPosition()))
-        //         {
-        //             isGameOver = true;
-
-        //         }
-        //     }
-        //     foreach (Actor segment2 in body2)
-        //     {
-        //         if (segment2.GetPosition().Equals(head.GetPosition()))
-        //         {
-        //             isGameOver = true;
-
-        //         }
-        //     }
-        // }
+        
 
         private void HandleGameOver(Cast cast)
         {

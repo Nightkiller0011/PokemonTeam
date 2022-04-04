@@ -67,7 +67,7 @@ namespace Unit06.Game.Services
                 Image pic = Raylib.LoadImage(file);
                 Texture2D img = Raylib.LoadTextureFromImage(pic);
                 Raylib.UnloadImage(pic);
-                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.RAYWHITE);
+                Raylib.DrawTexture(img,x,y,Raylib_cs.Color.WHITE);
             }
             
             else
