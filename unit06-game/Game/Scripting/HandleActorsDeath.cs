@@ -32,7 +32,7 @@ namespace Unit06.Game.Scripting
             foreach (Actor player in players)
             {
                 health = player.GetHealth();
-                if (health == 0)
+                if (health <= 0)
                 {
                     player.SetText("");
                 }
@@ -44,10 +44,9 @@ namespace Unit06.Game.Scripting
 
                 if (health == 0)
                 {
-                    enemy.SetText("");
                     scores.SetScore(10);
                     scores.SetText("Score: " + scores.GetScore());
-                    enemy.SetHealth(1);
+                    cast.RemoveActor("enemy",enemy);
                 }
             }
         }
