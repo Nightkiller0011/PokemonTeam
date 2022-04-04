@@ -34,6 +34,22 @@ namespace Unit06.Game.Casting
             SetPosition(new Point(x, y));
             
             SetPosition(new Point(x, y));
+            CreateImage(message);
+        }
+         public void CreateImage(string messages)
+        {
+            if (messages == "W")
+            {
+                SetImage("Assats/Assets/wall.png");
+            }
+            else if (messages == "B")
+            {
+                SetImage("Assats/Assets/barrel.png");
+            }
+            else if (messages == "R")
+            {
+                SetImage("Assats/Assets/rock.png");
+            }
         }
 
     }

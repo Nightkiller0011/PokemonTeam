@@ -241,7 +241,7 @@ namespace Unit06.Game.Scripting
                 }
             }
 
-            Console.WriteLine("Following a player");
+            //Console.WriteLine("Following a player");
 
         }
 
