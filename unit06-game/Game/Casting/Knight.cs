@@ -10,7 +10,7 @@ namespace Unit06.Game.Casting
 
             SetFontSize(Constants.FONT_SIZE);
             setFightClass("sword");
-            SetImage("Assats/Assets/sword.png");
+            SetImage("Assats/Assets/Sword2.png");
             SetText(_message);
             SetColor(Constants.SILVER);
         }

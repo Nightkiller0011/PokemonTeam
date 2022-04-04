@@ -54,13 +54,6 @@ namespace Unit06.Game.Scripting
                     attackzone[3] = new Point(currentX - (2*Constants.CELL_SIZE), currentY + Constants.CELL_SIZE);
                     attackzone[4] = new Point(currentX - Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX - (2*Constants.CELL_SIZE), currentY - Constants.CELL_SIZE);
-                    for (int i = 0; i < 6; i++)
-                    {
-                        sword[i].SetPosition(attackzone[i]);
-                        cast.AddActor("sword", sword[i]);
-                    }
-                    Hit = IsThereACollision(attackzone,enemy,Hit);
-
                 }
                 if (facing == "right")
                 {
@@ -70,13 +63,6 @@ namespace Unit06.Game.Scripting
                     attackzone[3] = new Point(currentX + (2*Constants.CELL_SIZE), currentY + Constants.CELL_SIZE);
                     attackzone[4] = new Point(currentX + Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX + (2*Constants.CELL_SIZE), currentY - Constants.CELL_SIZE);
-                    for (int i = 0; i < 6; i++)
-                    {
-                        sword[i].SetPosition(attackzone[i]);
-                        cast.AddActor("sword", sword[i]);
-                    }
-                    Hit = IsThereACollision(attackzone,enemy,Hit);
-
                 }
                 if (facing == "up")
                 {
@@ -86,12 +72,6 @@ namespace Unit06.Game.Scripting
                     attackzone[3] = new Point(currentX + Constants.CELL_SIZE, currentY - (2*Constants.CELL_SIZE));
                     attackzone[4] = new Point(currentX - Constants.CELL_SIZE, currentY - Constants.CELL_SIZE);
                     attackzone[5] = new Point(currentX - Constants.CELL_SIZE, currentY - (2*Constants.CELL_SIZE));
-                    for (int i = 0; i < 6; i++)
-                    {
-                        sword[i].SetPosition(attackzone[i]);
-                        cast.AddActor("sword", sword[i]);
-                    }
-                    Hit = IsThereACollision(attackzone,enemy,Hit);
                 }
                 if (facing == "down")
                 {
@@ -101,14 +81,14 @@ namespace Unit06.Game.Scripting
                     attackzone[2] = new Point(currentX + Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
                     attackzone[3] = new Point(currentX + Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));
                     attackzone[4] = new Point(currentX - Constants.CELL_SIZE, currentY + Constants.CELL_SIZE);
-                    attackzone[5] = new Point(currentX - Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));
-                    for (int i = 0; i < 6; i++)
-                    {
-                        sword[i].SetPosition(attackzone[i]);
-                        cast.AddActor("sword", sword[i]);
-                    }
-                    Hit = IsThereACollision(attackzone,enemy,Hit);             
+                    attackzone[5] = new Point(currentX - Constants.CELL_SIZE, currentY + (2*Constants.CELL_SIZE));             
                 }
+                for (int i = 0; i < 6; i++)
+                {
+                    sword[i].SetPosition(attackzone[i]);
+                    cast.AddActor("sword", sword[i]);
+                }
+                Hit = IsThereACollision(attackzone,enemy,Hit);
                 Playsound(Hit);
             }
 
@@ -124,12 +104,6 @@ namespace Unit06.Game.Scripting
                     attackzone2[3] = new Point(currentX2 - (4*Constants.CELL_SIZE), currentY2);
                     attackzone2[4] = new Point(currentX2 - (5*Constants.CELL_SIZE), currentY2);
                     attackzone2[5] = new Point(currentX2 - (6*Constants.CELL_SIZE), currentY2);
-                    for (int i = 0; i < 6; i++)
-                    {
-                        arrows[i].SetPosition(attackzone2[i]);
-                        cast.AddActor("arrow", arrows[i]);
-                    }
-                   Hit = IsThereACollision(attackzone2,enemy,Hit);
                 }
                 if (facing2 == "right")
                 {
@@ -138,13 +112,7 @@ namespace Unit06.Game.Scripting
                     attackzone2[2] = new Point(currentX2 + (3*Constants.CELL_SIZE), currentY2);
                     attackzone2[3] = new Point(currentX2 + (4*Constants.CELL_SIZE), currentY2);
                     attackzone2[4] = new Point(currentX2 + (5*Constants.CELL_SIZE), currentY2);
-                    attackzone2[5] = new Point(currentX2 + (6*Constants.CELL_SIZE), currentY2);
-                    for (int i = 0; i < 6; i++)
-                    {
-                        arrows[i].SetPosition(attackzone2[i]);
-                        cast.AddActor("arrow", arrows[i]);
-                    }
-                    Hit = IsThereACollision(attackzone2,enemy,Hit);             
+                    attackzone2[5] = new Point(currentX2 + (6*Constants.CELL_SIZE), currentY2);             
                 }
                 if (facing2 == "up")
                 {
@@ -153,13 +121,7 @@ namespace Unit06.Game.Scripting
                     attackzone2[2] = new Point(currentX2, currentY2 - (3*Constants.CELL_SIZE));
                     attackzone2[3] = new Point(currentX2, currentY2 - (4*Constants.CELL_SIZE));
                     attackzone2[4] = new Point(currentX2, currentY2 - (5*Constants.CELL_SIZE));
-                    attackzone2[5] = new Point(currentX2, currentY2 - (6*Constants.CELL_SIZE)); 
-                    for (int i = 0; i < 6; i++)
-                    {
-                        arrows[i].SetPosition(attackzone2[i]);
-                        cast.AddActor("arrow", arrows[i]);
-                    }
-                    Hit = IsThereACollision(attackzone2,enemy,Hit);              
+                    attackzone2[5] = new Point(currentX2, currentY2 - (6*Constants.CELL_SIZE));              
                 }
                 if (facing2 == "down")
                 {
@@ -169,19 +131,19 @@ namespace Unit06.Game.Scripting
                     attackzone2[3] = new Point(currentX2, currentY2 + (4*Constants.CELL_SIZE));
                     attackzone2[4] = new Point(currentX2, currentY2 + (5*Constants.CELL_SIZE));
                     attackzone2[5] = new Point(currentX2, currentY2 + (6*Constants.CELL_SIZE));
-                    for (int i = 0; i < 6; i++)
-                    {
-                        arrows[i].SetPosition(attackzone2[i]);
-                        cast.AddActor("arrow", arrows[i]);
-                    }
-                    Hit = IsThereACollision(attackzone2,enemy,Hit);
                 }
+                for (int i = 0; i < 6; i++)
+                {
+                    arrows[i].SetPosition(attackzone2[i]);
+                    cast.AddActor("arrow", arrows[i]);
+                }
+                Hit = IsThereACollision(attackzone2,enemy,Hit);
                 Playsound(Hit);
             }
         }
         public void Playsound(bool play)
         {
-            if (!play)
+            if(play)
             {
                 audioService.playsound("Assats/Assets/ElectronOrDectetorHit.wav");
             }
@@ -205,7 +167,6 @@ namespace Unit06.Game.Scripting
                     }            
                 }
             }
-
             return hit;
         } 
     }
