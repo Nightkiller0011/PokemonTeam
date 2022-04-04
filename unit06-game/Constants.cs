@@ -29,6 +29,8 @@ namespace Unit06.Game
         public static Color GREEN = new Color(0, 255, 0);
         public static Color SILVER = new Color(192, 192, 192);
         public static Color GRAY = new Color(128, 128, 128);
+
+        public static int enemyCap = 10;
     }
 }
 
