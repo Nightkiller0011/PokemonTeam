@@ -160,7 +160,7 @@ namespace Unit06.Game.Scripting
                     enemy.SetVelocity(direction);
 
                 }
-                else if (enemyMovePlayer1X < 0 && enemyMovePlayer1X > 0)
+                else if (enemyMovePlayer1X < 0 && enemyMovePlayer1Y > 0)
                 {
                     // -x +y = left down
                     Point direction = new Point(-5,5);
@@ -226,7 +226,7 @@ namespace Unit06.Game.Scripting
                     enemy.SetVelocity(direction);
 
                 }
-                else if (enemyMovePlayer2X < 0 && enemyMovePlayer2X > 0)
+                else if (enemyMovePlayer2X < 0 && enemyMovePlayer2Y > 0)
                 {
                     // -x +y = left down
                     Point direction = new Point(-5,5);
@@ -268,6 +268,7 @@ namespace Unit06.Game.Scripting
                 {
                     BasicMovement(enemy);
                 }
+
             }
         }
     }
