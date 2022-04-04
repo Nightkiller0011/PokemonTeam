@@ -41,7 +41,7 @@ namespace Unit06.Game.Services
         {
             Raylib.BeginDrawing();
             //Raylib.ClearBackground("Assats/Assets/BackGround.png");
-            Image BackGround = Raylib.LoadImage("Assats/Assets/BackGround2.png");
+            Image BackGround = Raylib.LoadImage("Assats/Assets/BackGround3.png");
             Texture2D texture = Raylib.LoadTextureFromImage(BackGround);
             Raylib.UnloadImage(BackGround);
             Raylib.DrawTexture(texture,0,0,Raylib_cs.Color.WHITE);
