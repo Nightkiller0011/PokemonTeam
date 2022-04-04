@@ -59,6 +59,8 @@ namespace Unit06
             // create the script
             Script script = new Script();
             script.AddAction("input", new ControlActorsAction(keyboardService));
+            script.AddAction("update", new ControlEnemyAction());
+            script.AddAction("update", new HandleEnemyOstacleCollisionsAction());
             script.AddAction("update", new MoveActorsAction());
             script.AddAction("update", new HandleEnemyPlayerCollisionsAction());
             script.AddAction("update", new Attack(keyboardService, audioService));
@@ -67,7 +69,7 @@ namespace Unit06
             script.AddAction("update", new HandleGameoverAction());
             script.AddAction("update", new HandleActorsDeath());
             script.AddAction("update", new HandleEnemiesVisionsAction());
-            script.AddAction("update", new ControlEnemyAction());
+            // script.AddAction("update", new ControlEnemyAction());
             script.AddAction("output", new DrawActorsAction(videoService));
 
             // start the game

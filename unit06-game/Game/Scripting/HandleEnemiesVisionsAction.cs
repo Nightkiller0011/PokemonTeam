@@ -27,10 +27,14 @@ namespace Unit06.Game.Scripting
                     int playerY = player.GetPosition().GetY();
                     if (((enemyX - enemy.GetSightDistance() < playerX) && (playerX < enemyX + enemy.GetSightDistance())) && ((enemyY - enemy.GetSightDistance() < playerY) && (playerY < enemyY + enemy.GetSightDistance())))
                     {
-                        enemy.SetPlayerDetected(true);
+                        if (player.GetText() != "")
+                        {
+                            enemy.SetPlayerDetected(true);
+                        }
                     }
                 }
             }
         }
     }
 }
+
