@@ -1,4 +1,5 @@
-﻿using Unit06.Game.Casting;
+﻿using Unit06.Game;
+using Unit06.Game.Casting;
 using Unit06.Game.Directing;
 using Unit06.Game.Scripting;
 using Unit06.Game.Services;
@@ -30,9 +31,24 @@ namespace Unit06
             
 
             // obsticals
-            cast.AddActor("obstical", new Obstical("obstical", "W"));
-            cast.AddActor("obstical", new Obstical("obstical2", "B"));
-            cast.AddActor("obstical", new Obstical("obstical3", "R"));
+            for (int i = 0; i < Constants.obsticalCap; i++ )
+            {
+                if ( i % 3 == 0)
+                {
+                    cast.AddActor("obstical", new Obstical("obstical", "W"));
+                }
+                else if ( i % 3 == 1 )
+                {
+                    cast.AddActor("obstical", new Obstical("obstical2", "B"));
+                }
+                else if ( i % 3 == 2)
+                {
+                    cast.AddActor("obstical", new Obstical("obstical3", "R"));
+                }
+            }
+           
+            
+
 
             // scrore borad
             Score score = new Score();

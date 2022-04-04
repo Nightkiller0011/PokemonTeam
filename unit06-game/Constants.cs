@@ -31,6 +31,8 @@ namespace Unit06.Game
         public static Color GRAY = new Color(128, 128, 128);
 
         public static int enemyCap = 10;
+        public static int obsticalCap = 15;
+
     }
 }
 

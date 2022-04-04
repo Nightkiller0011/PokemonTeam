@@ -20,7 +20,7 @@ namespace Unit06.Game.Casting
             Random rand = new Random();
 
             x = rand.Next(0,60) * 15;
-            y = rand.Next(3,40) * 15;
+            y = rand.Next(3,35) * 15;
 
             // create the player
             Cast cast = new Cast();
@@ -56,7 +56,7 @@ namespace Unit06.Game.Casting
         {
             return EnemyValue;
         }
-
+        
         public void SetValue(int ValueMaultiplier)
         {
             EnemyValue *= ValueMaultiplier;
