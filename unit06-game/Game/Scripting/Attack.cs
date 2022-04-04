@@ -162,7 +162,7 @@ namespace Unit06.Game.Scripting
                     int attacky = attack.GetY();
                     if ( enemysx == attackx && enemysy == attacky)
                     {
-                        enemy.SetHealth(10);
+                        enemy.SetHealth(50);
                         hit = true;
                     }            
                 }
