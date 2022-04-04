@@ -16,12 +16,15 @@ namespace Unit06
             cast.AddActor("player", new Player("player1"));
             cast.AddActor("player", new Player("player2"));
 
-            //enemies
+            
             // for (int i = 0; i < 5; i++)
             // {
+                
                 cast.AddActor("enemy", new Enemy("zombie", "Z", 6));
                 cast.AddActor("enemy", new Enemy("skeleton", "S", 7));
                 cast.AddActor("enemy", new Enemy("minator", "M", 8));
+
+                
             // }
 
             
@@ -71,7 +74,7 @@ namespace Unit06
             script.AddAction("update", new HandleEnemiesVisionsAction());
             // script.AddAction("update", new ControlEnemyAction());
             script.AddAction("output", new DrawActorsAction(videoService));
-
+            script.AddAction("update", new SpawnEnemy());
             // start the game
             Director director = new Director(videoService);
             director.StartGame(cast, script);
