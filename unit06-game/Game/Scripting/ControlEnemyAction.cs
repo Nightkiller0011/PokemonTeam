@@ -17,38 +17,50 @@ namespace Unit06.Game.Scripting
         {
         }
 
-        public async void BasicMovement()
+        public async void BasicMovement(Actor enemy)
         {
             //Direction is where the enemy is facing
             //steps is how far it goes
+            Point enenyPoint = enemy.GetPosition();
             int direction = rand.Next(0,3);
             int steps = rand.Next(1,10);
-            for (int i = 0; i < steps; i++)
-            {
+            
                 //Straight
                 if (direction == 0)
                 {
-                    
+                    Point y = new Point(0,5);
+
+                    enenyPoint.Add(y);
+                    enemy.SetVelocity(y);
                 }
                 //Left
                 else if ( direction == 1)
                 {
+                    Point y = new Point(-5,0);
 
+                    enenyPoint.Add(y);
+                    enemy.SetVelocity(y);
                 }
                 //Right
                 else if (direction == 2)
                 {
+                    Point y = new Point(5,0);
 
+                    enenyPoint.Add(y);
+                    enemy.SetVelocity(y);
                 }
                 //Back
                 else if( direction == 3)
                 {
+                    Point y = new Point(0,-5);
 
+                    enenyPoint.Add(y);
+                    enemy.SetVelocity(y);
                 }
-            }
+            
         }
 
-        public void FollowMovement(List<Point> playerPositions, Point enemyPosition)
+        public void FollowMovement(List<Point> playerPositions, Point enemyPosition, Actor enemy)
         {
             /* first step is minus x and y from players position to enemy positions. So playerX - enemyX. 
             If result number is +x +y than enemy moves down right.
@@ -102,46 +114,64 @@ namespace Unit06.Game.Scripting
                 if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y > 0)
                 {
                     // +x +y = right down
+                    Point direction = new Point(5,5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X == 0 && enemyMovePlayer1Y > 0)
                 {
                     // 0x +y = down
+                    Point direction = new Point(0,5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y == 0)
                 {
                     // +x 0y = right
+                    Point direction = new Point(5,0);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X < 0 && enemyMovePlayer1Y < 0)
                 {
                     // -x -y = left up
+                    Point direction = new Point(-5,-5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X == 0 && enemyMovePlayer1Y < 0)
                 {
                     // 0x -y = up
+                    Point direction = new Point(0,-5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X < 0 && enemyMovePlayer1Y == 0)
                 {
                     // -x 0y = left
+                    Point direction = new Point(-5,0);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X > 0 && enemyMovePlayer1Y < 0)
                 {
                     // +x -y = right up
+                    Point direction = new Point(5,-5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer1X < 0 && enemyMovePlayer1X > 0)
                 {
                     // -x +y = left down
+                    Point direction = new Point(-5,5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else
                 {
                     // 0x 0y = nowhere
+                    Point direction = new Point(0,0);
+                    enemy.SetVelocity(direction);
 
                 }
             }
@@ -151,45 +181,62 @@ namespace Unit06.Game.Scripting
                 if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y > 0)
                 {
                     // +x +y = right down
+                    Point direction = new Point(5,5);
+                    enemy.SetVelocity(direction);
                 }
                 else if (enemyMovePlayer2X == 0 && enemyMovePlayer2Y > 0)
                 {
                     // 0x +y = down
+                    Point direction = new Point(0,5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y == 0)
                 {
                     // +x 0y = right
+                    Point direction = new Point(5,0);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer2X < 0 && enemyMovePlayer2Y < 0)
                 {
                     // -x -y = left up
+                    Point direction = new Point(-5,-5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer2X == 0 && enemyMovePlayer2Y < 0)
                 {
                     // 0x -y = up
+                    Point direction = new Point(0,-5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer2X < 0 && enemyMovePlayer2Y == 0)
                 {
                     // -x 0y = left
+                    Point direction = new Point(-5,0);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer2X > 0 && enemyMovePlayer2Y < 0)
                 {
                     // +x -y = right up
+                    Point direction = new Point(5,-5);
+                    enemy.SetVelocity(direction);
 
                 }
                 else if (enemyMovePlayer2X < 0 && enemyMovePlayer2X > 0)
                 {
                     // -x +y = left down
-
+                    Point direction = new Point(-5,5);
+                    enemy.SetVelocity(direction);
                 }
                 else
                 {
                     // 0x 0y = nowhere
+                    Point direction = new Point(0,0);
+                    enemy.SetVelocity(direction);
                     
                 }
             }
@@ -215,11 +262,11 @@ namespace Unit06.Game.Scripting
                 if (enemy.GetPlayerDetected())
                 {
                     Point enemyPos = enemy.GetPosition();
-                    FollowMovement(playersPositions, enemyPos);
+                    FollowMovement(playersPositions, enemyPos, enemy);
                 }
                 else
                 {
-                    BasicMovement();
+                    BasicMovement(enemy);
                 }
             }
         }
