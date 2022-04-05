@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Raylib_cs;
 using Unit06.Game.Casting;
 
-
 namespace Unit06.Game.Services
 {
     /// <summary>
@@ -31,6 +30,9 @@ namespace Unit06.Game.Services
             keys["l"] = KeyboardKey.KEY_L;
             keys["e"] = KeyboardKey.KEY_E;
             keys["o"] = KeyboardKey.KEY_O;
+            keys["1"] = KeyboardKey.KEY_ONE;
+            keys["0"] = KeyboardKey.KEY_ZERO;
+            keys["space"] = KeyboardKey.KEY_SPACE;
         }
 
         /// <summary>

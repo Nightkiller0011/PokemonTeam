@@ -82,21 +82,26 @@ namespace Unit06
             // create the script
             Script script = new Script();
             script.AddAction("input", new ControlActorsAction(keyboardService));
-            script.AddAction("update", new ControlEnemyAction());
-            script.AddAction("update", new HandleEnemyOstacleCollisionsAction());
-            script.AddAction("update", new MoveActorsAction());
-            script.AddAction("update", new HandleEnemyPlayerCollisionsAction());
-            script.AddAction("update", new Attack(keyboardService, audioService));
-            script.AddAction("update", new HandleCollisionsAction());
-            script.AddAction("update", new HandleWeponCollisionsAction());
-            script.AddAction("update", new HandleGameoverAction());
-            script.AddAction("update", new HandleActorsDeath());
-            script.AddAction("update", new HandleEnemiesVisionsAction());
+            script.AddAction("update1", new ControlEnemyAction());
+            script.AddAction("update1", new HandleEnemyOstacleCollisionsAction());
+            script.AddAction("update1", new MoveActorsAction());
+            script.AddAction("update1", new HandleEnemyPlayerCollisionsAction());
+            script.AddAction("update1", new Attack(keyboardService, audioService));
+            script.AddAction("update1", new HandleCollisionsAction());
+            script.AddAction("update1", new HandleWeponCollisionsAction());
+            script.AddAction("update1", new HandleGameoverAction());
+            script.AddAction("update1", new HandleActorsDeath());
+            script.AddAction("update1", new HandleEnemiesVisionsAction());
+            script.AddAction("update1", new SpawnEnemy());
+            script.AddAction("update2", new HandleSettingAction(keyboardService));
+            
             // script.AddAction("update", new ControlEnemyAction());
-            script.AddAction("output", new DrawActorsAction(videoService));
-            script.AddAction("update", new SpawnEnemy());
+            script.AddAction("output1", new DrawActorsAction(videoService));
+            script.AddAction("output2", new DrawInstructionAction(videoService));
+
+
             // start the game
-            Director director = new Director(videoService);
+            Director director = new Director(videoService, keyboardService);
             director.StartGame(cast, script);
         }
     }

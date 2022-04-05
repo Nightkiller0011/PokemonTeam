@@ -3,7 +3,6 @@ using Unit06.Game.Casting;
 using Unit06.Game.Scripting;
 using Unit06.Game.Services;
 
-
 namespace Unit06.Game.Directing
 {
     /// <summary>
@@ -13,16 +12,22 @@ namespace Unit06.Game.Directing
     /// </para>
     /// </summary>
     public class Director
-    {
+    {   
+        private bool startGame;
         private VideoService videoService = null;
+        private KeyboardService keyboardService = null;
+
+        
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
         /// </summary>
         /// <param name="videoService">The given VideoService.</param>
-        public Director(VideoService videoService)
+        public Director(VideoService videoService, KeyboardService keyboardService)
         {
+            this.startGame = false;
             this.videoService = videoService;
+            this.keyboardService = keyboardService;
         }
 
         /// <summary>
@@ -36,8 +41,22 @@ namespace Unit06.Game.Directing
             while (videoService.IsWindowOpen())
             {
                 ExecuteActions("input", cast, script);
-                ExecuteActions("update", cast, script);
-                ExecuteActions("output", cast, script);
+                if (keyboardService.IsKeyDown("space"))
+                {
+                    startGame = true;
+                    cast.GetFirstActor("instruction").SetText("");
+                }
+                if (startGame)
+                {
+                    ExecuteActions("update1", cast, script);
+                    ExecuteActions("output1", cast, script);
+                }
+                else
+                {
+                    ExecuteActions("update2", cast, script);
+                    ExecuteActions("output2", cast, script);
+                }
+                // ExecuteActions("output2", cast, script);
             }
             videoService.CloseWindow();
         }
