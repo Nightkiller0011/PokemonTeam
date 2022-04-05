@@ -58,6 +58,10 @@ namespace Unit06
             // Game Over text
             cast.AddActor("gameover", new GameOver());
 
+            // instruction
+            cast.AddActor("instruction", new Instruction());
+
+
             // Player 1's health
             Health Player1Health = new Health();
             Player1Health.SetText("Player 1 Health: 100");
